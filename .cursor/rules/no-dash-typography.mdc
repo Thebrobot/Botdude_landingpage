@@ -1,0 +1,15 @@
+---
+description: Do not use em or en dashes in project copy; use commas, colons, periods, or middots instead.
+globs: "**/*"
+alwaysApply: true
+---
+
+# Typography: no em dash or en dash
+
+In all project text (HTML, metadata, docs):
+
+- **Do not use** U+2014 em dash (`—`) or U+2013 en dash (`–`).
+- **Prefer** commas, periods, colons, parentheses, or the middot (`·`) to connect clauses.
+- **Numeric ranges** may use words (e.g. `25 to 45%`) or hyphens if standard for the context (ASCII `-` only).
+
+This keeps copy consistent with the Botdude site conventions.

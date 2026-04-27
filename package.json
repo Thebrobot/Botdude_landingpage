@@ -1,0 +1,8 @@
+{
+  "name": "botdude",
+  "private": true,
+  "description": "Static site for botdude.ai",
+  "scripts": {
+    "dev": "npx --yes serve . -l 3000"
+  }
+}
