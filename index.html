@@ -304,7 +304,10 @@
             background-image:
                 radial-gradient(ellipse 100% 80% at 50% -30%, rgba(34, 211, 238, 0.08), transparent 55%),
                 radial-gradient(ellipse 50% 60% at 100% 20%, rgba(34, 211, 238, 0.04), transparent 50%),
-                radial-gradient(ellipse 45% 50% at 0% 70%, rgba(34, 211, 238, 0.03), transparent 45%);
+                radial-gradient(ellipse 45% 50% at 0% 70%, rgba(34, 211, 238, 0.03), transparent 45%),
+                linear-gradient(var(--grid-line) 1px, transparent 1px),
+                linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+            background-size: auto, auto, auto, 48px 48px, 48px 48px;
             background-attachment: fixed;
             color: var(--white);
             font-family: 'Inter', sans-serif;
@@ -411,11 +414,7 @@
         }
 
         main > section:not(.hero) {
-            border-top: 1px solid rgba(255, 255, 255, 0.04);
-        }
-
-        main > section:not(.hero):nth-child(even) {
-            background: linear-gradient(180deg, rgba(34, 211, 238, 0.04) 0%, transparent 55%);
+            border-top: 1px solid rgba(34, 211, 238, 0.06);
         }
 
         /* Navigation */
@@ -615,12 +614,6 @@
             padding: 0;
             padding-top: 5.75rem;
             border-top: none;
-            overflow: hidden;
-            background-color: #020617;
-            background-image:
-                linear-gradient(var(--grid-line) 1px, transparent 1px),
-                linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
-            background-size: 48px 48px;
         }
 
         @media (min-width: 768px) {
@@ -919,6 +912,22 @@
             50% { transform: rotate(-5.5deg) translateY(-6px); }
         }
 
+        @keyframes el-float {
+            0%, 100% { transform: translateY(0px); }
+            50%       { transform: translateY(-7px); }
+        }
+
+        .solution-card,
+        .step-card {
+            animation: el-float 6s ease-in-out infinite;
+        }
+
+        .solution-card:nth-child(2) { animation-delay: -1.5s; }
+        .solution-card:nth-child(3) { animation-delay: -3s; }
+        .solution-card:nth-child(4) { animation-delay: -4.5s; }
+        .step-card:nth-child(2)     { animation-delay: -2s; }
+        .step-card:nth-child(3)     { animation-delay: -4s; }
+
         .hero-sticker img {
             display: block;
             width: 100%;
@@ -1156,35 +1165,6 @@
                 0 0 28px rgba(34, 211, 238, 0.12);
         }
 
-        .hero-wave-wrap {
-            position: relative;
-            z-index: 2;
-            width: 100%;
-            line-height: 0;
-            margin-top: auto;
-            margin-bottom: 0;
-            pointer-events: none;
-        }
-
-        .hero-wave-wrap svg {
-            display: block;
-            width: 100%;
-            height: clamp(64px, 10vw, 104px);
-            vertical-align: bottom;
-        }
-
-        .hero-wave-fill-back {
-            fill: url(#hero-wave-back-grad);
-        }
-
-        .hero-wave-fill-mid {
-            fill: url(#hero-wave-mid-grad);
-            opacity: 0.92;
-        }
-
-        .hero-wave-fill-front {
-            fill: url(#hero-wave-front-grad);
-        }
 
         .hero-offer-video {
             width: 100%;
@@ -3631,27 +3611,6 @@
                         <div class="phone-mockup-footer">Powered by Botdude.AI</div>
                     </figure>
                 </div>
-            </div>
-            <div class="hero-wave-wrap" aria-hidden="true">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 120" preserveAspectRatio="none" focusable="false">
-                    <defs>
-                        <linearGradient id="hero-wave-back-grad" x1="0" y1="0" x2="0" y2="1">
-                            <stop offset="0%" stop-color="#0a4f5c"/>
-                            <stop offset="100%" stop-color="#0e6678"/>
-                        </linearGradient>
-                        <linearGradient id="hero-wave-mid-grad" x1="0" y1="0" x2="0" y2="1">
-                            <stop offset="0%" stop-color="#117089"/>
-                            <stop offset="100%" stop-color="#1590a5"/>
-                        </linearGradient>
-                        <linearGradient id="hero-wave-front-grad" x1="0" y1="0" x2="0" y2="1">
-                            <stop offset="0%" stop-color="#18a0b6"/>
-                            <stop offset="100%" stop-color="#1aa0b8"/>
-                        </linearGradient>
-                    </defs>
-                    <path class="hero-wave-fill-back" d="M0,72 C180,28 360,108 540,58 C720,8 900,98 1080,52 C1260,6 1350,88 1440,62 L1440,120 L0,120 Z"/>
-                    <path class="hero-wave-fill-mid" d="M0,82 C220,42 440,112 660,68 C880,24 1100,102 1320,58 C1380,48 1410,78 1440,72 L1440,120 L0,120 Z"/>
-                    <path class="hero-wave-fill-front" d="M0,92 C240,52 480,118 720,74 C960,30 1200,108 1440,68 L1440,120 L0,120 Z"/>
-                </svg>
             </div>
         </section>
 
