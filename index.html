@@ -166,7 +166,7 @@
           "name": "How much does AI reception cost compared to hiring a full-time receptionist?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "A full-time receptionist can cost tens of thousands per year in salary alone, plus benefits, turnover, and coverage gaps. After Broski is live, it is $697 per month on this offer, the heavy upfront configuration is covered for qualifying businesses so you are not paying thousands in professional setup out of pocket first. No long-term lock-in."
+            "text": "A full-time receptionist can cost tens of thousands per year in salary alone, plus benefits, turnover, and coverage gaps. After Broski is live, it is $697/month on this offer, the heavy upfront configuration is covered for qualifying businesses so you are not paying thousands in professional setup out of pocket first. No long-term contract."
           }
         },
         {
@@ -174,7 +174,7 @@
           "name": "What do I pay for Agent Broski and what is the risk?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "We spend real time learning your business, how you talk to homeowners, and how you want calls handled, then we mirror that into Agent Broski and connect your phone flow. The setup work that would normally cost thousands is covered on this offer for qualifying businesses. After that, $697 per month if Broski is driving value; cancel anytime if it is not worth it."
+            "text": "We spend real time learning your business, how you talk to homeowners, and how you want calls handled, then we mirror that into Agent Broski and connect your phone flow. The setup work that would normally cost thousands is covered on this offer for qualifying businesses. After that, $697/month if Broski is driving value; cancel anytime if it is not worth it."
           }
         },
         {
@@ -699,7 +699,7 @@
         }
 
         @media (min-width: 900px) {
-            /* Full-viewport desktop hero — single centered column, full width */
+            /* Full-viewport desktop hero, single centered column, full width */
             .hero-split {
                 display: flex;
                 flex-direction: column;
@@ -728,9 +728,19 @@
             }
 
             .hero-bridge {
-                flex-direction: column;
-                align-items: center;
-                gap: 0.75rem;
+                flex-direction: row;
+                flex-wrap: nowrap;
+                align-items: flex-end;
+                justify-content: center;
+                gap: 0.5rem 1rem;
+                max-width: 52rem;
+                width: 100%;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .hero-bridge-line {
+                display: block;
             }
 
             .hero-cta-row {
@@ -788,6 +798,11 @@
             .hero-bridge {
                 align-items: center;
                 gap: 1.5rem;
+            }
+
+            .hero-sticker {
+                order: -1;
+                margin-bottom: 0;
             }
 
             .hero-phone-mockup {
@@ -969,7 +984,7 @@
                 0 8px 48px rgba(0, 0, 0, 0.5);
         }
 
-        /* Desktop styles — all in one block AFTER base styles to win the cascade */
+        /* Desktop styles, all in one block AFTER base styles to win the cascade */
         @media (min-width: 900px) {
             .headline-hero-ring {
                 font-size: clamp(4rem, 9vw, 10.5rem);
@@ -1067,6 +1082,52 @@
             max-width: 40rem;
         }
 
+        .hero-kicker-row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 0.55rem;
+            margin-bottom: 1.1rem;
+        }
+
+        .hero-audience,
+        .campaign-source-badge {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.38rem 0.85rem;
+            border-radius: var(--radius-pill);
+            font-size: 11px;
+            font-weight: 900;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: #a5f3fc;
+            border: 1px solid rgba(34, 211, 238, 0.32);
+            background: rgba(34, 211, 238, 0.08);
+        }
+
+        .campaign-source-badge {
+            color: #ffffff;
+            border-color: rgba(255, 255, 255, 0.18);
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .campaign-source-badge[hidden] {
+            display: none;
+        }
+
+        .hero-trade-line {
+            font-size: 0.98rem;
+            line-height: 1.55;
+            max-width: 740px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 1.55rem;
+            text-align: center;
+            color: var(--muted-text);
+        }
+
         .hero-cta-row {
             display: flex;
             flex-wrap: wrap;
@@ -1100,66 +1161,67 @@
             z-index: 2;
             width: 100%;
             line-height: 0;
-            margin-top: -1px;
-            margin-bottom: -2px;
+            margin-top: auto;
+            margin-bottom: 0;
+            pointer-events: none;
         }
 
         .hero-wave-wrap svg {
             display: block;
             width: 100%;
-            height: clamp(52px, 8vw, 88px);
+            height: clamp(64px, 10vw, 104px);
+            vertical-align: bottom;
         }
 
         .hero-wave-fill-back {
-            fill: #0e6d80;
+            fill: url(#hero-wave-back-grad);
+        }
+
+        .hero-wave-fill-mid {
+            fill: url(#hero-wave-mid-grad);
+            opacity: 0.92;
         }
 
         .hero-wave-fill-front {
-            fill: #1AA0B8;
+            fill: url(#hero-wave-front-grad);
         }
 
-        .offer-video-wave-top {
-            position: relative;
-            z-index: 3;
+        .hero-offer-video {
             width: 100%;
-            line-height: 0;
-            margin-top: -14px;
-            margin-bottom: -2px;
-            pointer-events: none;
-        }
-
-        .offer-video-wave-top svg {
-            display: block;
-            width: 100%;
-            height: clamp(52px, 8vw, 88px);
-            transform: scaleY(-1);
-            transform-origin: center;
-        }
-
-        .offer-video-section {
-            position: relative;
-            z-index: 1;
-            padding: 0 0 3rem;
-        }
-
-        /* Flat #020617: override main even-section gradient so hero and offer read as one band */
-        main > section#offer-video.offer-video-section {
-            border-top: none;
-            background-color: #020617;
-            background-image: none;
-        }
-
-        .offer-video-section .container {
-            padding-top: 2.5rem;
+            max-width: 920px;
+            margin: 0.35rem auto 1.65rem;
+            padding: 0;
+            box-sizing: border-box;
         }
 
         @media (min-width: 768px) {
-            .offer-video-section {
-                padding: 0 0 3.5rem;
+            .hero-offer-video {
+                margin-bottom: 2rem;
+            }
+        }
+
+        .hero-offer-video .offer-video-frame-wrap {
+            margin-top: 0;
+        }
+
+        .hero-offer-video-lead {
+            font-size: clamp(0.95rem, 1.6vw, 1.05rem);
+            line-height: 1.55;
+            color: rgba(165, 243, 252, 0.88);
+            font-weight: 600;
+            text-align: center;
+            margin: 0 0 1rem;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+        }
+
+        @media (min-width: 900px) {
+            .hero-copy-col {
+                padding: clamp(2.5rem, 5vh, 4rem) 0 clamp(2rem, 4vh, 3rem) 0;
             }
 
-            .offer-video-section .container {
-                padding-top: 3rem;
+            .hero-desc-short {
+                margin-bottom: 1.35rem;
             }
         }
 
@@ -1182,38 +1244,102 @@
             }
         }
 
-        .offer-video-frame-wrap iframe {
+        .offer-video-frame-wrap video {
             position: absolute;
             inset: 0;
             width: 100%;
             height: 100%;
             border: 0;
             display: block;
+            object-fit: cover;
+            background: #000;
         }
 
-        .offer-video-frame-wrap iframe[hidden] {
-            display: none !important;
-        }
-
-        .offer-video-setup-note {
+        .offer-video-overlay {
             position: absolute;
             inset: 0;
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 0.85rem;
+            margin: 0;
+            padding: 1.5rem;
+            text-align: center;
+            border: 0;
+            cursor: pointer;
+            background:
+                radial-gradient(circle at 50% 40%, rgba(34, 211, 238, 0.14) 0%, transparent 55%),
+                linear-gradient(180deg, rgba(2, 6, 23, 0.35) 0%, rgba(2, 6, 23, 0.72) 100%);
+            transition: opacity 0.35s ease, visibility 0.35s ease;
+        }
+
+        .offer-video-overlay.is-hidden {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+
+        .offer-video-overlay:focus-visible {
+            outline: 2px solid var(--primary-orange);
+            outline-offset: -4px;
+        }
+
+        .offer-video-overlay-play {
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0;
-            padding: 1.5rem 1.75rem;
-            text-align: center;
-            font-size: 15px;
-            font-weight: 500;
-            line-height: 1.55;
-            color: rgba(255, 255, 255, 0.9);
+            width: 4.75rem;
+            height: 4.75rem;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #a5f3fc 0%, var(--primary-orange) 45%, var(--primary-orange-mid) 100%);
+            box-shadow: 0 12px 32px rgba(34, 211, 238, 0.35);
+            animation: offer-video-play-pulse 2.4s ease-in-out infinite;
         }
 
-        .offer-video-setup-note code {
-            font-size: 0.9em;
+        .offer-video-overlay-play svg {
+            width: 1.35rem;
+            height: 1.35rem;
+            margin-left: 0.2rem;
+            fill: #020617;
+        }
+
+        @keyframes offer-video-play-pulse {
+            0%, 100% {
+                transform: scale(1);
+                box-shadow: 0 12px 32px rgba(34, 211, 238, 0.35);
+            }
+            50% {
+                transform: scale(1.06);
+                box-shadow: 0 16px 40px rgba(34, 211, 238, 0.5);
+            }
+        }
+
+        .offer-video-overlay-headline {
+            margin: 0;
+            font-family: var(--font-display);
+            font-size: clamp(2.25rem, 8vw, 4.25rem);
+            font-weight: 800;
+            line-height: 0.95;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            color: #fff;
+            text-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+        }
+
+        .offer-video-overlay-sub {
+            margin: 0;
+            max-width: 18rem;
+            font-size: clamp(0.95rem, 2.6vw, 1.05rem);
+            font-weight: 600;
+            line-height: 1.45;
+            color: rgba(255, 255, 255, 0.88);
+        }
+
+        .offer-video-overlay-sub strong {
             color: var(--primary-orange);
-            font-weight: 700;
+            font-weight: 800;
         }
 
         .lead-hero-tight {
@@ -2652,6 +2778,66 @@
             overflow: hidden;
         }
 
+        .claim-steps-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1rem;
+            margin-top: 2.5rem;
+        }
+
+        @media (min-width: 768px) {
+            .claim-steps-grid {
+                grid-template-columns: repeat(4, 1fr);
+                gap: 1.25rem;
+            }
+        }
+
+        .claim-step-card {
+            position: relative;
+            overflow: hidden;
+            border-radius: 1.25rem;
+            padding: 1.35rem 1.2rem 1.45rem;
+            border: 1px solid rgba(34, 211, 238, 0.14);
+            background: linear-gradient(155deg, rgba(34, 211, 238, 0.08) 0%, rgba(15, 23, 42, 0.96) 55%);
+            text-align: left;
+        }
+
+        @media (min-width: 768px) {
+            .claim-step-card {
+                border-radius: 1.5rem;
+            }
+        }
+
+        .claim-step-card strong {
+            display: block;
+            color: #ffffff;
+            font-family: var(--font-display);
+            font-size: 0.95rem;
+            line-height: 1.25;
+            margin-bottom: 0.55rem;
+        }
+
+        .claim-step-card p {
+            margin: 0;
+            color: var(--muted-text);
+            font-size: 14px;
+            line-height: 1.55;
+        }
+
+        .claim-step-num {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 28px;
+            height: 28px;
+            border-radius: 999px;
+            margin-bottom: 0.9rem;
+            color: #020617;
+            background: #a5f3fc;
+            font-weight: 900;
+            font-size: 13px;
+        }
+
         .step-num {
             position: absolute;
             right: -10px;
@@ -2792,7 +2978,7 @@
             }
         }
 
-        /* ── Tablet & below (≤968px) ── */
+        /* Tablet and below */
         @media (max-width: 968px) {
             .hero-copy-col {
                 text-align: center;
@@ -2846,7 +3032,7 @@
             .bot-showcase-grid { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
         }
 
-        /* ── Phones (≤640px) ── */
+        /* Phones */
         @media (max-width: 640px) {
             .container { padding: 0 1.15rem; }
             section { padding: 2.75rem 0; }
@@ -2907,14 +3093,11 @@
             .before-after-terminal { font-size: 10px; padding: 0.75rem 0.85rem; }
 
             .step-num { font-size: 100px; }
-            .trust-item { font-size: 11px; }
-            .trust-strip { padding: 0.85rem 0; }
-            .trust-strip-inner { gap: 0.4rem 1rem; }
 
             .compare-card { padding: 1.25rem 1rem; border-radius: 1rem; }
         }
 
-        /* ── Small phones: iPhone SE / iPhone mini (≤390px) ── */
+        /* Small phones: iPhone SE / iPhone mini */
         @media (max-width: 390px) {
             .container { padding: 0 1rem; }
             .headline { font-size: clamp(24px, 7vw, 32px); }
@@ -3035,63 +3218,6 @@
             color: rgba(148, 163, 184, 0.5);
             letter-spacing: 0.06em;
             text-transform: uppercase;
-        }
-
-        /* Trust strip */
-        .trust-strip {
-            background: #1AA0B8;
-            border-top: none;
-            border-bottom: none;
-            padding: 1.1rem 0;
-            opacity: 0;
-            transform: translateY(20px);
-            transition: all 0.5s ease-out;
-        }
-
-        .trust-strip.reveal {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .trust-strip-inner {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            align-items: center;
-            gap: 0.6rem 2rem;
-        }
-
-        .trust-item {
-            font-size: 13px;
-            font-weight: 800;
-            color: #ffffff;
-            letter-spacing: 0.05em;
-            text-transform: uppercase;
-            white-space: nowrap;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
-
-        .trust-item svg {
-            flex-shrink: 0;
-            stroke: #ffffff !important;
-        }
-
-        .trust-item-highlight {
-            color: #ffffff;
-        }
-
-        .trust-divider {
-            color: rgba(255, 255, 255, 0.4);
-            font-size: 16px;
-            display: none;
-        }
-
-        @media (min-width: 640px) {
-            .trust-divider {
-                display: block;
-            }
         }
 
         /* FAQ show more */
@@ -3339,7 +3465,7 @@
             box-shadow: 0 0 16px rgba(34, 211, 238, 0.12);
         }
 
-        /* ── FINAL desktop overrides — placed last so they always beat base styles ── */
+        /* FINAL desktop overrides, placed last so they always beat base styles */
         @media (min-width: 900px) {
             .hero-hl-247 {
                 margin-bottom: 0.55em !important;
@@ -3361,7 +3487,7 @@
             }
         }
 
-        /* ── FINAL mobile centering — same cascade fix for ≤968px ── */
+        /* FINAL mobile centering, same cascade fix for tablet and below */
         @media (max-width: 968px) {
             .hero-audio-viz {
                 display: flex !important;
@@ -3370,6 +3496,24 @@
                 margin-left: 0 !important;
                 margin-right: 0 !important;
             }
+        }
+
+        /* Mobile video-first layout: pull video above the description so it
+           lands above the fold on phones. Desktop (900px+) is a centered
+           single column and keeps its existing order. */
+        @media (max-width: 899px) {
+            .hero-copy-inner {
+                display: flex;
+                flex-direction: column;
+            }
+            .hero-kicker-row          { order: 1; }
+            #hero-promise             { order: 2; }
+            .headline-hero-ring       { order: 3; }
+            .hero-audio-viz           { order: 4; }
+            .hero-offer-video         { order: 5; margin-top: 1rem; }
+            .hero-desc-short          { order: 6; margin-top: 1.25rem; }
+            .hero-trade-line          { order: 7; }
+            .hero-bridge              { order: 8; }
         }
     </style>
 </head>
@@ -3384,11 +3528,11 @@
                 </a>
                 <div class="nav-cluster">
                     <div class="nav-actions">
-                        <a href="tel:+19802683833" class="btn btn-ghost">980-BOT-DUDE</a>
-                        <a href="#claim" class="btn btn-orange">Book a Call →</a>
+                        <a href="tel:+19802683833" class="btn btn-ghost" data-track-event="botdude_demo_call_click">Call the Demo Line</a>
+                        <a href="#claim" class="btn btn-orange" data-track-event="botdude_hero_claim_click">Claim My Free Bot Build</a>
                     </div>
                     <div class="nav-end">
-                        <a href="#claim" class="btn btn-orange nav-book-call">Book a Call →</a>
+                        <a href="#claim" class="btn btn-orange nav-book-call" data-track-event="botdude_hero_claim_click">Claim My Free Bot Build</a>
                     </div>
                 </div>
             </div>
@@ -3397,15 +3541,18 @@
 
     <main id="main-content">
         <!-- Slot B: human-facing brand (lockup, og-image art, body copy, CTAs). Attitude and full tagline can live in images; visible text stays clear and trades-specific. -->
-        <!-- Main sections follow the agreed funnel: hero, problem, calculator, solution, before and after, how it works, the offer, founder detail, trades, deployments, integrations, compare, proof, additive, who, FAQ, claim. -->
+        <!-- Funnel: hero, calculator, solution, how it works, the offer, deployments, trades, proof, FAQ, claim. -->
         <section class="hero reveal" aria-labelledby="hero-heading">
             <div class="hero-split">
                 <div class="hero-copy-col">
                     <div class="hero-copy-inner">
-                        <p class="visually-hidden" id="hero-promise">AI agents that get real work done for home service businesses.</p>
+                        <div class="hero-kicker-row">
+                            <p class="hero-audience">For Home Service Owners.</p>
+                            <span id="campaign-source-badge" class="campaign-source-badge" hidden></span>
+                        </div>
+                        <p class="visually-hidden" id="hero-promise">Agent Broski answers and books calls for home service businesses.</p>
                         <h1 id="hero-heading" class="headline-hero-ring" aria-describedby="hero-promise">
                             <span class="hero-hl-line1">Stop Losing Jobs to Voicemail.</span>
-                            <span class="hero-hl-247">24/ 7</span>
                         </h1>
                         <div class="hero-audio-viz" aria-hidden="true">
                             <span class="hero-audio-bar"></span>
@@ -3422,14 +3569,43 @@
                             <span class="hero-audio-bar"></span>
                             <span class="hero-audio-bar"></span>
                         </div>
-                        <p class="hero-desc-short"><b>Agent Broski</b> answers every call, books appointments, and texts leads back. Built for your business, your scripts, your prices. Setup covered on a limited offer.</p>
+                        <p class="hero-desc-short"><b>Agent Broski</b> answers, qualifies, books, and follows up with home service leads, even when you are on a job, asleep, or pretending you did not hear the phone.</p>
+                        <div id="offer-video" class="hero-offer-video reveal" aria-label="Offer overview video">
+                            <p class="hero-offer-video-lead">Free overview · I explain the whole offer</p>
+                            <div class="offer-video-frame-wrap">
+                                <video
+                                    id="offer-video-player"
+                                    title="Bot Dude: the build, your line, and the offer (overview video)"
+                                    controls
+                                    playsinline
+                                    preload="metadata"
+                                    width="920"
+                                    height="518"
+                                >
+                                    <source src="assets/videos/botdude-explainer.mp4" type="video/mp4">
+                                    Your browser does not support embedded video. Call 980-BOT-DUDE to hear the demo.
+                                </video>
+                                <button
+                                    type="button"
+                                    id="offer-video-overlay"
+                                    class="offer-video-overlay"
+                                    aria-label="Play overview video"
+                                >
+                                    <span class="offer-video-overlay-play" aria-hidden="true">
+                                        <svg viewBox="0 0 24 24" focusable="false"><path d="M8 5v14l11-7z"/></svg>
+                                    </span>
+                                    <p class="offer-video-overlay-headline">Pay me.</p>
+                                    <p class="offer-video-overlay-sub">Kidding. Hit play. <strong>I explain the whole thing free.</strong></p>
+                                </button>
+                            </div>
+                        </div>
+                        <p class="hero-trade-line">Built for HVAC, plumbing, roofing, electrical, restoration, landscaping, demolition, and local service businesses.</p>
                         <div class="hero-bridge">
                             <div class="hero-bridge-cta" id="hero-cta-anchor">
                                 <div class="hero-cta-row">
-                                    <a href="#claim" class="btn btn-orange">Book a Free Call →</a>
-                                    <a href="#calculator" class="btn btn-ghost" style="text-transform: none; letter-spacing: 0.04em;">Run the Numbers</a>
+                                    <a href="#claim" class="btn btn-orange" data-track-event="botdude_hero_claim_click">Claim My Free Bot Build</a>
                                 </div>
-                                <p class="hero-phone-line muted"><a href="tel:+19802683833" style="color: var(--primary-orange); font-weight: 700; text-decoration: none;">Call 980-BOT-DUDE</a></p>
+                                <p class="hero-phone-line muted">Want to hear it first? <a href="tel:+19802683833" style="color: var(--primary-orange); font-weight: 700; text-decoration: none;" data-track-event="botdude_demo_call_click">Call 980-BOT-DUDE</a> and ask for the Agent Broski demo.</p>
                             </div>
                         </div>
                     </div>
@@ -3458,100 +3634,27 @@
             </div>
             <div class="hero-wave-wrap" aria-hidden="true">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 120" preserveAspectRatio="none" focusable="false">
-                    <path class="hero-wave-fill-back" d="M0,55 C240,5 480,105 720,65 C960,25 1200,95 1440,45 L1440,120 L0,120 Z"/>
-                    <path class="hero-wave-fill-front" d="M0,75 C280,25 520,115 720,80 C920,45 1160,100 1440,60 L1440,120 L0,120 Z"/>
+                    <defs>
+                        <linearGradient id="hero-wave-back-grad" x1="0" y1="0" x2="0" y2="1">
+                            <stop offset="0%" stop-color="#0a4f5c"/>
+                            <stop offset="100%" stop-color="#0e6678"/>
+                        </linearGradient>
+                        <linearGradient id="hero-wave-mid-grad" x1="0" y1="0" x2="0" y2="1">
+                            <stop offset="0%" stop-color="#117089"/>
+                            <stop offset="100%" stop-color="#1590a5"/>
+                        </linearGradient>
+                        <linearGradient id="hero-wave-front-grad" x1="0" y1="0" x2="0" y2="1">
+                            <stop offset="0%" stop-color="#18a0b6"/>
+                            <stop offset="100%" stop-color="#1aa0b8"/>
+                        </linearGradient>
+                    </defs>
+                    <path class="hero-wave-fill-back" d="M0,72 C180,28 360,108 540,58 C720,8 900,98 1080,52 C1260,6 1350,88 1440,62 L1440,120 L0,120 Z"/>
+                    <path class="hero-wave-fill-mid" d="M0,82 C220,42 440,112 660,68 C880,24 1100,102 1320,58 C1380,48 1410,78 1440,72 L1440,120 L0,120 Z"/>
+                    <path class="hero-wave-fill-front" d="M0,92 C240,52 480,118 720,74 C960,30 1200,108 1440,68 L1440,120 L0,120 Z"/>
                 </svg>
             </div>
         </section>
 
-        <div class="trust-strip reveal" role="region" aria-label="At a glance">
-            <div class="container trust-strip-inner">
-                <span class="trust-item">
-                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
-                    $3,000 setup, waived
-                </span>
-                <span class="trust-divider" aria-hidden="true">|</span>
-                <span class="trust-item">
-                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
-                    21 trades served
-                </span>
-                <span class="trust-divider" aria-hidden="true">|</span>
-                <span class="trust-item">
-                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
-                    Live in days, not months
-                </span>
-                <span class="trust-divider" aria-hidden="true">|</span>
-                <span class="trust-item">
-                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
-                    No contracts
-                </span>
-            </div>
-        </div>
-
-        <section id="offer-video" class="offer-video-section reveal" aria-labelledby="offer-video-heading">
-            <div class="offer-video-wave-top" aria-hidden="true">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 120" preserveAspectRatio="none" focusable="false">
-                    <path class="hero-wave-fill-back" d="M0,55 C240,5 480,105 720,65 C960,25 1200,95 1440,45 L1440,120 L0,120 Z"/>
-                    <path class="hero-wave-fill-front" d="M0,75 C280,25 520,115 720,80 C920,45 1160,100 1440,60 L1440,120 L0,120 Z"/>
-                </svg>
-            </div>
-            <div class="container">
-                <h2 id="offer-video-heading" class="headline" style="text-align: center;">THIS IS WHAT YOUR<br><i>PHONE SHOULD SOUND LIKE.</i></h2>
-                <p class="muted" style="font-size: 17px; max-width: 620px; margin: 1rem auto 0; text-align: center; line-height: 1.65;">
-                    One call. Answered on the first ring, customer qualified, job booked, lead texted back. All automatically. Hit play before you read another word.
-                </p>
-                <div class="offer-video-frame-wrap">
-                    <p id="offer-video-setup-note" class="offer-video-setup-note">
-                        To show your video here, open the script at the bottom of this page and set <code>OFFER_VIDEO_YOUTUBE_ID</code> to your YouTube id (the part after <code>v=</code> in the video link).
-                    </p>
-                    <iframe
-                        id="offer-video-iframe"
-                        title="Bot Dude: the build, your line, and the offer (overview video)"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                        referrerpolicy="strict-origin-when-cross-origin"
-                        allowfullscreen
-                        loading="lazy"
-                        hidden
-                    ></iframe>
-                </div>
-            </div>
-        </section>
-
-        <section id="problem" aria-labelledby="problem-heading">
-            <div class="container">
-                <span class="section-label">WHY THIS MATTERS</span>
-                <h2 id="problem-heading" class="headline">MISSED_RINGS<br><i>EAT_YOUR_MARGIN.</i></h2>
-                <div class="card-grid">
-                    <div class="card stat-card">
-                        <div class="stat-number-orange">62%</div>
-                        <span class="card-title">UNANSWERED CALLS</span>
-                        <p class="muted">The average business fails to answer more than half of its incoming calls.</p>
-                    </div>
-                    <div class="card stat-card stat-card-broski">
-                        <div class="stat-number-cyan">24/7</div>
-                        <span class="card-title">AVAILABILITY</span>
-                        <p class="muted">Customers call after hours and on weekends. If no one picks up, they call your competitor instead.</p>
-                    </div>
-                    <div class="card stat-card">
-                        <div class="stat-number-orange">$0</div>
-                        <span class="card-title">MISSED REVENUE</span>
-                        <p class="muted">Stop losing $5,000+ jobs because your team was busy on another site or sleeping. Capture them all.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <div class="cta-band" role="region" aria-label="Next step">
-            <div class="container cta-band-inner">
-                <p class="cta-band-text">Voicemail is expensive. Run the numbers, then book a call while we still have build slots this month.</p>
-                <div class="cta-band-actions">
-                    <a href="#calculator" class="btn btn-ghost">Back to Estimator</a>
-                    <a href="#claim" class="btn btn-orange">Book a Free Call →</a>
-                </div>
-            </div>
-        </div>
-
-        <!-- REVENUE LEAK ESTIMATOR -->
         <section id="calculator" aria-labelledby="calculator-heading">
             <div class="container">
                 <span class="section-label">THE COST OF SILENCE</span>
@@ -3623,16 +3726,15 @@
                         </div>
                     </div>
                     <div class="calc-cta-wrap">
-                        <a href="#claim" class="btn btn-orange">Stop the Leak: Book a Free Call →</a>
+                        <a href="#claim" class="btn btn-orange" data-track-event="botdude_hero_claim_click">Claim My Free Bot Build</a>
                         <div class="calc-cta-links">
-                            <a href="tel:+19802683833" class="calc-link-muted">Call 980-BOT-DUDE</a>
+                            <a href="tel:+19802683833" class="calc-link-muted" data-track-event="botdude_demo_call_click">Call 980-BOT-DUDE</a>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- THE SOLUTION -->
         <section id="solution" aria-labelledby="solution-heading">
             <div class="container">
                 <span class="section-label">MEET AGENT BROSKI</span>
@@ -3685,144 +3787,13 @@
             </div>
         </section>
 
-        <!-- HOW IT WORKS -->
-        <section id="before-after" class="reveal" aria-labelledby="before-after-heading">
-            <div class="container">
-                <span class="section-label">FIELD_COMPARE_MODE</span>
-                <h2 id="before-after-heading" class="headline" style="text-align: center;">LIFE_BEFORE_VS_AFTER<br><i>AGENT_BROSKI.</i></h2>
-                <p class="muted" style="font-size: 17px; max-width: 720px; margin: 0 auto; text-align: center; line-height: 1.65;">
-                    Two realities. One ring separates them. See which side your business is on right now.
-                </p>
-
-                <div class="ba-grid">
-                    <div class="ba-col ba-col--before">
-                        <div class="ba-col-header">
-                            <div class="ba-col-badge ba-col-badge--bad" aria-hidden="true">
-                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
-                            </div>
-                            <span class="ba-col-label">Without Broski</span>
-                        </div>
-                        <div class="ba-items">
-                            <div class="ba-item ba-item--bad">
-                                <div class="ba-item-icon" aria-hidden="true">
-                                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.68 13.31a16 16 0 003.41 2.6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7 2 2 0 011.72 2v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.42 19.42 0 014.43 9.88 19.79 19.79 0 011.36 1.2 2 2 0 013.34 1h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L7.32 8.91"/><line x1="23" y1="1" x2="1" y2="23"/></svg>
-                                </div>
-                                <div class="ba-item-text">
-                                    <span class="ba-item-title">Missed Call</span>
-                                    <span class="ba-item-sub">Phone rings. Nobody answers. Caller moves on.</span>
-                                </div>
-                            </div>
-                            <div class="ba-item ba-item--bad">
-                                <div class="ba-item-icon" aria-hidden="true">
-                                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-                                </div>
-                                <div class="ba-item-text">
-                                    <span class="ba-item-title">Goes to Competitor</span>
-                                    <span class="ba-item-sub">Caller calls the next company on Google.</span>
-                                </div>
-                            </div>
-                            <div class="ba-item ba-item--bad">
-                                <div class="ba-item-icon" aria-hidden="true">
-                                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="11" y2="17"/></svg>
-                                </div>
-                                <div class="ba-item-text">
-                                    <span class="ba-item-title">Forgotten Note</span>
-                                    <span class="ba-item-sub">Sticky note in the truck. Forgotten by noon.</span>
-                                </div>
-                            </div>
-                            <div class="ba-item ba-item--bad">
-                                <div class="ba-item-icon" aria-hidden="true">
-                                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
-                                </div>
-                                <div class="ba-item-text">
-                                    <span class="ba-item-title">No Follow-Up</span>
-                                    <span class="ba-item-sub">No message sent. Job never gets booked.</span>
-                                </div>
-                            </div>
-                            <div class="ba-item ba-item--bad">
-                                <div class="ba-item-icon" aria-hidden="true">
-                                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 15v4a3 3 0 003 3l4-9V2H5.72a2 2 0 00-2 1.7l-1.38 9a2 2 0 002 2.3zm7-13h2.67A2.31 2.31 0 0122 4v7a2.31 2.31 0 01-2.33 2H17"/></svg>
-                                </div>
-                                <div class="ba-item-text">
-                                    <span class="ba-item-title">2-Star Review</span>
-                                    <span class="ba-item-sub">"I called three times yesterday…" Damage done.</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="ba-verdict ba-verdict--bad">No booking. Revenue gone.</div>
-                    </div>
-
-                    <div class="ba-col ba-col--after">
-                        <div class="ba-col-header">
-                            <div class="ba-col-badge ba-col-badge--good" aria-hidden="true">
-                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
-                            </div>
-                            <span class="ba-col-label">With Broski</span>
-                        </div>
-                        <div class="ba-items">
-                            <div class="ba-item ba-item--good">
-                                <div class="ba-item-icon" aria-hidden="true">
-                                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.43 9.88 19.79 19.79 0 01.36 1.21 2 2 0 012.34 1h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.32 8.91a16 16 0 006.77 6.77l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
-                                </div>
-                                <div class="ba-item-text">
-                                    <span class="ba-item-title">Answered Instantly</span>
-                                    <span class="ba-item-sub">First ring answered, every time, day or night.</span>
-                                </div>
-                            </div>
-                            <div class="ba-item ba-item--good">
-                                <div class="ba-item-icon" aria-hidden="true">
-                                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
-                                </div>
-                                <div class="ba-item-text">
-                                    <span class="ba-item-title">Booked in 2 Minutes</span>
-                                    <span class="ba-item-sub">Caller qualified and job added to the schedule.</span>
-                                </div>
-                            </div>
-                            <div class="ba-item ba-item--good">
-                                <div class="ba-item-icon" aria-hidden="true">
-                                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/><polyline points="9 16 11 18 15 14"/></svg>
-                                </div>
-                                <div class="ba-item-text">
-                                    <span class="ba-item-title">Auto-Synced to Calendar</span>
-                                    <span class="ba-item-sub">Added to your schedule. No sticky notes needed.</span>
-                                </div>
-                            </div>
-                            <div class="ba-item ba-item--good">
-                                <div class="ba-item-icon" aria-hidden="true">
-                                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/><polyline points="9 10 12 13 16 7"/></svg>
-                                </div>
-                                <div class="ba-item-text">
-                                    <span class="ba-item-title">Confirmation Sent</span>
-                                    <span class="ba-item-sub">Text sent immediately. Reminder before the job.</span>
-                                </div>
-                            </div>
-                            <div class="ba-item ba-item--good">
-                                <div class="ba-item-icon" aria-hidden="true">
-                                    <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-                                </div>
-                                <div class="ba-item-text">
-                                    <span class="ba-item-title">5-Star Review</span>
-                                    <span class="ba-item-sub">"Picked up fast, got me on the schedule."</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="ba-verdict ba-verdict--good">Job on the board. Homeowner texted. Crew ready.</div>
-                    </div>
-                </div>
-
-                <div style="text-align: center; margin-top: 1.75rem;">
-                    <a href="#claim" class="btn btn-orange">Get the Booked-Job Version: Book a Call →</a>
-                </div>
-            </div>
-        </section>
-
         <section id="how" aria-labelledby="how-heading">
             <div class="container">
                 <span class="section-label">THE BOT DUDE PROCESS</span>
                 <h2 id="how-heading" class="headline">THREE STEPS INTO<br><i>THE OFFER.</i></h2>
                 <div class="card-grid">
                     <div class="card step-card">
-                        <span class="card-title">1. Book a Call</span>
+                        <span class="card-title">1. Book the Build Call</span>
                         <p class="muted">We only take a few businesses each month. That way your Broski is custom-built for you, not a generic setup.</p>
                         <div class="step-num" aria-hidden="true">1</div>
                     </div>
@@ -3833,22 +3804,21 @@
                     </div>
                     <div class="card step-card">
                         <span class="card-title">3. Pay Only For Value</span>
-                        <p class="muted">If Agent Broski makes you money, keep him for $697/mo. If not, cancel anytime. No strings.</p>
+                        <p class="muted">If Agent Broski makes sense, keep him for $697/month. If not, cancel anytime. No long-term contract.</p>
                         <div class="step-num" aria-hidden="true">3</div>
                     </div>
                 </div>
                 <div style="text-align: center; margin-top: 4rem;">
-                    <a href="#claim" class="btn btn-orange">Start My Build: Book a Call →</a>
+                    <a href="#claim" class="btn btn-orange">Claim My Free Bot Build</a>
                     <p class="cta-microcopy" style="margin-left: auto; margin-right: auto; max-width: 360px;">After you book, we reach out within 24 hours to confirm.</p>
                 </div>
             </div>
         </section>
 
-        <!-- WHO IT'S FOR -->
         <section id="the-offer" aria-labelledby="the-offer-heading">
             <div class="container">
                 <div class="the-offer-panel">
-                    <span class="section-label">WHY THIS OFFER IS HERE</span>
+                    <span class="section-label">THE OFFER</span>
                     <h2 id="the-offer-heading" class="headline">WE TUNE AGENT<br><i>BROSKI</i> TO YOUR BUSINESS.</h2>
                     <p class="offer-lead">
                         Most AI tools hand you a login and wish you luck. This is different: we learn your prices, territory, dispatch rules, and how you handle emergencies. Then we <b>deliver a live agent</b> with scripts, routing, and integrations set up before Broski touches your line. We typically charge <b>$3,000 to build a custom AI agent.</b> If you qualify, <b>that fee is completely waived.</b>
@@ -3862,154 +3832,13 @@
                         When the month fills, you wait. If voicemail is costing you money, waiting costs more than booking a call.
                     </p>
                     <div style="display: flex; flex-wrap: wrap; gap: 1rem; align-items: center;">
-                        <a href="#claim" class="btn btn-orange">Book a Free Call: Setup Included →</a>
-                        <a href="tel:+19802683833" class="btn btn-ghost">Talk it through on the phone</a>
+                        <a href="#claim" class="btn btn-orange">Claim My Free Bot Build</a>
+                        <a href="tel:+19802683833" class="btn btn-ghost" data-track-event="botdude_demo_call_click">Call the Demo Line</a>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- CALCULATOR SECTION -->
-        <section id="hero-detail" class="hero-detail reveal" aria-labelledby="hero-detail-heading">
-            <div class="container">
-                <div class="hero-detail-inner">
-                    <h2 id="hero-detail-heading" class="hero-detail-heading">Why work with Bot Dude</h2>
-                    <p class="lead muted" style="margin-bottom: 1.75rem;">
-                        We only put builds live that sound like your business and actually book. Miss the ring and the next company on Google gets the job. We make sure that does not happen.
-                    </p>
-                    <div class="why-bot-dude-panel" id="why-bot-dude">
-                        <div class="why-cards-grid">
-                            <div class="why-card">
-                                <div class="why-card-icon" aria-hidden="true">
-                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
-                                </div>
-                                <p class="why-card-title">Accountability</p>
-                                <p class="why-card-body">You are not dropped into a ticket queue. We stand behind how Broski sounds and books.</p>
-                            </div>
-                            <div class="why-card">
-                                <div class="why-card-icon" aria-hidden="true">
-                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
-                                </div>
-                                <p class="why-card-title">Proof in Public</p>
-                                <p class="why-card-body">We share what AI is doing for real businesses. Follow <a href="https://www.tiktok.com/@botdudeai" rel="noopener noreferrer" style="color: var(--primary-orange); font-weight: 700;">@botdudeai</a> for the unfiltered version.</p>
-                            </div>
-                            <div class="why-card">
-                                <div class="why-card-icon" aria-hidden="true">
-                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="6 3 18 3 22 9 12 22 2 9"/><line x1="2" y1="9" x2="22" y2="9"/><line x1="12" y1="3" x2="6" y2="9"/><line x1="12" y1="3" x2="18" y2="9"/></svg>
-                                </div>
-                                <p class="why-card-title">Limited Spots</p>
-                                <p class="why-card-body">A few premium builds a month so nobody gets a rushed, factory-default job.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="trades-bento" class="reveal" aria-labelledby="trades-bento-heading">
-            <div class="container">
-                <span class="section-label">TRADES_ON_THE_LINE</span>
-                <h2 id="trades-bento-heading" class="headline" style="text-align: center;">WE_ANSWER_FOR<br><i>THE_TRADES.</i></h2>
-                <p class="muted" style="font-size: 17px; max-width: 760px; margin: 0 auto; text-align: center; line-height: 1.65;">
-                    Not a generic chatbot. Built for <b>crews, vans, and emergency calls</b> across every major home service trade.
-                </p>
-
-                <div class="trades-bento">
-                    <article class="trade-tile tr-b-1">
-                        <img src="https://images.unsplash.com/photo-1584622650111-993a426dbbf0?auto=format&amp;fit=crop&amp;w=800&amp;h=640&amp;q=80" alt="Plumber working under a sink" width="800" height="640" loading="lazy" decoding="async">
-                        <div class="trade-tile-inner">
-                            <span class="trade-tile-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg></span>
-                            <span class="trade-tile-label">Plumbing</span>
-                        </div>
-                    </article>
-                    <article class="trade-tile tr-b-2">
-                        <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&amp;fit=crop&amp;w=800&amp;h=640&amp;q=80" alt="HVAC technician with equipment" width="800" height="640" loading="lazy" decoding="async">
-                        <div class="trade-tile-inner">
-                            <span class="trade-tile-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4"/></svg></span>
-                            <span class="trade-tile-label">HVAC</span>
-                        </div>
-                    </article>
-                    <article class="trade-tile tr-b-3">
-                        <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&amp;fit=crop&amp;w=800&amp;h=640&amp;q=80" alt="Roofing work on a home exterior" width="800" height="640" loading="lazy" decoding="async">
-                        <div class="trade-tile-inner">
-                            <span class="trade-tile-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></span>
-                            <span class="trade-tile-label">Roofing</span>
-                        </div>
-                    </article>
-                    <article class="trade-tile tr-b-4">
-                        <img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&amp;fit=crop&amp;w=800&amp;h=640&amp;q=80" alt="Outdoor residential property and landscaping" width="800" height="640" loading="lazy" decoding="async">
-                        <div class="trade-tile-inner">
-                            <span class="trade-tile-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/></svg></span>
-                            <span class="trade-tile-label">Landscaping</span>
-                        </div>
-                    </article>
-
-                    <blockquote class="trade-quote-card tr-b-q">
-                        <p class="trade-quote-text">"We stopped losing after-hours calls to voicemail. Overflow hits Broski first, then rolls to us if it is a true emergency. Bookings actually land in our calendar instead of on a sticky note."</p>
-                        <div class="trade-quote-meta">
-                            <div class="trade-quote-avatar" aria-hidden="true"></div>
-                            <span class="trade-quote-name">Owner · HVAC &amp; plumbing</span>
-                            <span class="trade-quote-role">Composite-style quote from how businesses describe routing after go-live. Not a paid testimonial.</span>
-                        </div>
-                        <p class="trade-quote-note">Illustrative feedback · not a live review feed</p>
-                    </blockquote>
-
-                    <article class="trade-tile tr-b-5">
-                        <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&amp;fit=crop&amp;w=800&amp;h=640&amp;q=80" alt="Construction site and building work" width="800" height="640" loading="lazy" decoding="async">
-                        <div class="trade-tile-inner">
-                            <span class="trade-tile-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></span>
-                            <span class="trade-tile-label">Contracting</span>
-                        </div>
-                    </article>
-
-                    <article class="trade-tile tr-b-6">
-                        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&amp;fit=crop&amp;w=800&amp;h=640&amp;q=80" alt="Heavy equipment on a work site" width="800" height="640" loading="lazy" decoding="async">
-                        <div class="trade-tile-inner">
-                            <span class="trade-tile-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 16l4-8 4 4 4-4 4 8"/><path d="M4 20h16"/></svg></span>
-                            <span class="trade-tile-label">Demolition</span>
-                        </div>
-                    </article>
-
-                    <article class="trade-tile tr-b-7">
-                        <img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&amp;fit=crop&amp;w=800&amp;h=640&amp;q=80" alt="Electrician on a residential job" width="800" height="640" loading="lazy" decoding="async">
-                        <div class="trade-tile-inner">
-                            <span class="trade-tile-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></span>
-                            <span class="trade-tile-label">Electrical</span>
-                        </div>
-                    </article>
-                    <article class="trade-tile tr-b-8">
-                        <img src="https://images.unsplash.com/photo-1489515217757-5fd1be406fef?auto=format&amp;fit=crop&amp;w=800&amp;h=640&amp;q=80" alt="Modern home exterior and windows" width="800" height="640" loading="lazy" decoding="async">
-                        <div class="trade-tile-inner">
-                            <span class="trade-tile-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="12" y1="3" x2="12" y2="21"/></svg></span>
-                            <span class="trade-tile-label">Windows &amp; doors</span>
-                        </div>
-                    </article>
-                    <article class="trade-tile tr-b-9">
-                        <img src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&amp;fit=crop&amp;w=800&amp;h=640&amp;q=80" alt="Tools and materials on a job site" width="800" height="640" loading="lazy" decoding="async">
-                        <div class="trade-tile-inner">
-                            <span class="trade-tile-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg></span>
-                            <span class="trade-tile-label">Concrete</span>
-                        </div>
-                    </article>
-                    <article class="trade-tile tr-b-10">
-                        <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&amp;fit=crop&amp;w=800&amp;h=640&amp;q=80" alt="Office phone and customer service" width="800" height="640" loading="lazy" decoding="async">
-                        <div class="trade-tile-inner">
-                            <span class="trade-tile-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.906.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span>
-                            <span class="trade-tile-label">Office + CSR</span>
-                        </div>
-                    </article>
-                </div>
-
-                <div class="trades-bento-cta">
-                    <a href="#claim" class="btn btn-orange">Book a Free Call →</a>
-                    <p style="margin-top: 1.25rem; font-size: 14px; color: var(--muted-text);">
-                        We build for 21 industries. <a href="https://thebrobot.com/industries/" target="_blank" rel="noopener noreferrer" style="color: var(--primary-orange); font-weight: 700; text-decoration: none; border-bottom: 1px solid rgba(34, 211, 238, 0.35);">See all industries at thebrobot.com →</a>
-                    </p>
-                </div>
-            </div>
-        </section>
-
-        <!-- THE OFFER -->
         <section id="built-deployments" class="reveal" aria-labelledby="built-heading">
             <div class="container">
                 <span class="section-label">VOICE_BUILDS_FOR_TRADES</span>
@@ -4020,7 +3849,7 @@
                 <div class="bot-showcase-grid">
                     <article class="bot-showcase-card">
                         <div class="bot-showcase-media">
-                            <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&amp;fit=crop&amp;w=800&amp;h=550&amp;q=80" alt="Technician in safety gear on a job site" width="800" height="550" loading="lazy" decoding="async">
+                            <img src="/images/showcase/agent-broski.jpg" alt="Dispatcher with headset managing inbound calls, chat, and booking screens" width="800" height="550" loading="lazy" decoding="async">
                         </div>
                         <div class="bot-showcase-body">
                             <span class="bot-showcase-tag">Inbound_Line</span>
@@ -4030,7 +3859,7 @@
                     </article>
                     <article class="bot-showcase-card">
                         <div class="bot-showcase-media">
-                            <img src="https://images.unsplash.com/photo-1584622650111-993a426dbbf0?auto=format&amp;fit=crop&amp;w=800&amp;h=550&amp;q=80" alt="Plumber working under a sink" width="800" height="550" loading="lazy" decoding="async">
+                            <img src="/images/showcase/after-hours.jpg" alt="Dispatch desk active at night with moonlit service van outside" width="800" height="550" loading="lazy" decoding="async">
                         </div>
                         <div class="bot-showcase-body">
                             <span class="bot-showcase-tag">After_Hours</span>
@@ -4060,81 +3889,114 @@
                     </article>
                 </div>
                 <div style="text-align: center; margin-top: 2rem;">
-                    <a href="#claim" class="btn btn-orange">Book a Free Call →</a>
+                    <a href="#claim" class="btn btn-orange">Claim My Free Bot Build</a>
                 </div>
             </div>
         </section>
 
-        <section id="integrations" class="reveal" aria-labelledby="integrations-heading">
+        <section id="trades-bento" class="reveal" aria-labelledby="trades-bento-heading">
             <div class="container">
-                <span class="section-label">STACK_AND_ROUTING</span>
-                <h2 id="integrations-heading" class="headline" style="text-align: center;">YOUR_STACK,<br><i>BOOKINGS_OUT.</i></h2>
+                <span class="section-label">TRADES_ON_THE_LINE</span>
+                <h2 id="trades-bento-heading" class="headline" style="text-align: center;">WE_ANSWER_FOR<br><i>THE_TRADES.</i></h2>
                 <p class="muted" style="font-size: 17px; max-width: 760px; margin: 0 auto; text-align: center; line-height: 1.65;">
-                    If you already have a business number, we usually start with <b>call forwarding</b> from your carrier, CallRail tracking pool, or PBX (unanswered, after-hours, overflow, or a dedicated Broski line). Broski answers that path first. Then we wire <b>calendar and job data</b> where your accounts and APIs allow.
+                    Not a generic chatbot. Built for <b>crews, vans, and emergency calls</b> across every major home service trade.
                 </p>
-                <div class="integrations-forward">
-                    <h3>Forwarding_First</h3>
-                    <p><b>You keep the number on the truck and in ads.</b> We route unanswered, after-hours, or overflow calls to Broski via your carrier, CallRail pool, or PBX. Broski runs your script and books directly into your existing tools. We map the cleanest path on the qualification call.</p>
+
+                <div class="trades-bento">
+                    <article class="trade-tile tr-b-1">
+                        <img src="/images/trades/plumbing.jpg" alt="Plumber repairing pipes under a residential sink" width="800" height="640" loading="lazy" decoding="async">
+                        <div class="trade-tile-inner">
+                            <span class="trade-tile-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg></span>
+                            <span class="trade-tile-label">Plumbing</span>
+                        </div>
+                    </article>
+                    <article class="trade-tile tr-b-2">
+                        <img src="/images/trades/hvac.jpg" alt="HVAC technician servicing an outdoor AC unit" width="800" height="640" loading="lazy" decoding="async">
+                        <div class="trade-tile-inner">
+                            <span class="trade-tile-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4"/></svg></span>
+                            <span class="trade-tile-label">HVAC</span>
+                        </div>
+                    </article>
+                    <article class="trade-tile tr-b-3">
+                        <img src="/images/trades/roofing.jpg" alt="Roofer installing shingles on a residential roof" width="800" height="640" loading="lazy" decoding="async">
+                        <div class="trade-tile-inner">
+                            <span class="trade-tile-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></span>
+                            <span class="trade-tile-label">Roofing</span>
+                        </div>
+                    </article>
+                    <article class="trade-tile tr-b-4">
+                        <img src="/images/trades/landscaping.jpg" alt="Landscaping crew mowing and maintaining a suburban yard" width="800" height="640" loading="lazy" decoding="async">
+                        <div class="trade-tile-inner">
+                            <span class="trade-tile-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/></svg></span>
+                            <span class="trade-tile-label">Landscaping</span>
+                        </div>
+                    </article>
+
+                    <article class="trade-quote-card tr-b-q">
+                        <p class="trade-quote-text">Typical call path: overflow hits Broski, the caller gets qualified, true emergencies route to the right person, and bookable jobs land on the calendar.</p>
+                        <div class="trade-quote-meta">
+                            <div class="trade-quote-avatar" aria-hidden="true"></div>
+                            <span class="trade-quote-name">Call routing example</span>
+                            <span class="trade-quote-role">Not a testimonial. Just the kind of workflow we map before a build goes live.</span>
+                        </div>
+                        <p class="trade-quote-note">No fake proof. No made-up customer names.</p>
+                    </article>
+
+                    <article class="trade-tile tr-b-5">
+                        <img src="/images/trades/contracting.jpg" alt="General contractor at a residential build site" width="800" height="640" loading="lazy" decoding="async">
+                        <div class="trade-tile-inner">
+                            <span class="trade-tile-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></span>
+                            <span class="trade-tile-label">Contracting</span>
+                        </div>
+                    </article>
+
+                    <article class="trade-tile tr-b-6">
+                        <img src="/images/trades/demolition.jpg" alt="Interior demolition work with debris at a renovation site" width="800" height="640" loading="lazy" decoding="async">
+                        <div class="trade-tile-inner">
+                            <span class="trade-tile-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 16l4-8 4 4 4-4 4 8"/><path d="M4 20h16"/></svg></span>
+                            <span class="trade-tile-label">Demolition</span>
+                        </div>
+                    </article>
+
+                    <article class="trade-tile tr-b-7">
+                        <img src="/images/trades/electrical.jpg" alt="Electrician working on a residential breaker panel" width="800" height="640" loading="lazy" decoding="async">
+                        <div class="trade-tile-inner">
+                            <span class="trade-tile-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></span>
+                            <span class="trade-tile-label">Electrical</span>
+                        </div>
+                    </article>
+                    <article class="trade-tile tr-b-8">
+                        <img src="/images/trades/windows-doors.jpg" alt="Installer fitting a new window on a home exterior" width="800" height="640" loading="lazy" decoding="async">
+                        <div class="trade-tile-inner">
+                            <span class="trade-tile-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="12" y1="3" x2="12" y2="21"/></svg></span>
+                            <span class="trade-tile-label">Windows &amp; doors</span>
+                        </div>
+                    </article>
+                    <article class="trade-tile tr-b-9">
+                        <img src="/images/trades/concrete.jpg" alt="Concrete finisher smoothing a freshly poured driveway" width="800" height="640" loading="lazy" decoding="async">
+                        <div class="trade-tile-inner">
+                            <span class="trade-tile-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg></span>
+                            <span class="trade-tile-label">Concrete</span>
+                        </div>
+                    </article>
+                    <article class="trade-tile tr-b-10">
+                        <img src="/images/trades/office-csr.jpg" alt="Home service dispatcher with headset coordinating calls at a desk" width="800" height="640" loading="lazy" decoding="async">
+                        <div class="trade-tile-inner">
+                            <span class="trade-tile-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.906.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span>
+                            <span class="trade-tile-label">Office + CSR</span>
+                        </div>
+                    </article>
                 </div>
-                <p class="muted" style="font-size: 15px; max-width: 800px; margin: 1.75rem auto 0; text-align: center; line-height: 1.65; font-weight: 500;">
-                    Common stacks we work with (exact integrations confirmed on your qualification call):
-                </p>
-                <div class="integration-chip-grid" aria-label="Example integrations and platforms">
-                    <span class="integration-chip">ServiceTitan</span>
-                    <span class="integration-chip">Jobber</span>
-                    <span class="integration-chip">Housecall Pro</span>
-                    <span class="integration-chip">JobNimbus</span>
-                    <span class="integration-chip">Service Fusion</span>
-                    <span class="integration-chip">AccuLynx</span>
-                    <span class="integration-chip">GoHighLevel</span>
-                    <span class="integration-chip">Zoho CRM</span>
-                    <span class="integration-chip">HubSpot</span>
-                    <span class="integration-chip">Google Calendar</span>
-                    <span class="integration-chip">CallRail</span>
-                    <span class="integration-chip">Your PBX / VoIP</span>
-                    <span class="integration-chip-note">Plus webhooks and CSV where it fits</span>
-                </div>
-                <p class="integrations-footnote">
-                    Third-party names are your tools, not an endorsement from those companies. Availability varies by plan, permissions, and what each account exposes. If you tell us what you run today, we scope it before go-live.
-                </p>
-                <div style="text-align: center; margin-top: 2rem;">
-                    <a href="#claim" class="btn btn-orange">Book a Call: We'll Scope Your Stack →</a>
+
+                <div class="trades-bento-cta">
+                    <a href="#claim" class="btn btn-orange">Claim My Free Bot Build</a>
+                    <p style="margin-top: 1.25rem; font-size: 14px; color: var(--muted-text);">
+                        We build across local service trades. <a href="https://thebrobot.com/industries/" target="_blank" rel="noopener noreferrer" style="color: var(--primary-orange); font-weight: 700; text-decoration: none; border-bottom: 1px solid rgba(34, 211, 238, 0.35);">See industries at thebrobot.com →</a>
+                    </p>
                 </div>
             </div>
         </section>
 
-        <section id="compare-paths" aria-labelledby="compare-heading">
-            <div class="container">
-                <span class="section-label">CHOOSE YOUR PATH</span>
-                <h2 id="compare-heading" class="headline">THREE WAYS OWNERS<br><i>SOLVE THE PHONE.</i></h2>
-                <p class="muted" style="font-size: 17px; max-width: 760px; margin: 0 auto 0; text-align: center; line-height: 1.65;">
-                    No trash talk, just the tradeoffs owners actually weigh. Home service businesses usually pick one primary layer, then add overflow or nights.
-                </p>
-                <div class="compare-grid">
-                    <div class="compare-card">
-                        <h3>Human answering service</h3>
-                        <p class="compare-pro"><span class="compare-label">Upside</span>Live voice, familiar model, works well if you want a live person answering every call.</p>
-                        <p class="compare-con"><span class="compare-label">Tradeoff</span>Queues, per-minute math, and staffing limits when five people call at once.</p>
-                    </div>
-                    <div class="compare-card">
-                        <h3>DIY / platform AI</h3>
-                        <p class="compare-pro"><span class="compare-label">Upside</span>Self-serve signup, broad features, fits IT-led rollouts.</p>
-                        <p class="compare-con"><span class="compare-label">Tradeoff</span>You or your office becomes the project manager, and generic scripts surface on emergency calls.</p>
-                    </div>
-                    <div class="compare-card compare-card-highlight">
-                        <h3>Bot Dude + Agent Broski</h3>
-                        <p class="compare-outcome">Ships a working agent on your forwarding path, not a DIY science project.</p>
-                        <p class="compare-pro"><span class="compare-label">Upside</span>Home-service workflows, founder-led build, heavy setup covered on this offer, keep your published number.</p>
-                        <p class="compare-con"><span class="compare-label">Tradeoff</span>Limited spots, not a fit if you want a zero-touch enterprise phone migration.</p>
-                    </div>
-                </div>
-                <div style="text-align: center; margin-top: 2.5rem;">
-                    <a href="#claim" class="btn btn-orange">Book a Free Call →</a>
-                </div>
-            </div>
-        </section>
-
-        <!-- PROOF AND TYPICAL BUILD -->
         <section id="proof-build" aria-labelledby="proof-heading">
             <div class="container" style="text-align: center;">
                 <span class="section-label">REAL BUILDS</span>
@@ -4157,75 +4019,11 @@
                 <div class="demo-callout" id="hear-broski" aria-labelledby="demo-heading">
                     <p id="demo-heading"><b>Hear it before you buy the story.</b></p>
                     <p class="muted">Call <a href="tel:+19802683833" style="color: var(--primary-orange); font-weight: 700; text-decoration: none;">980-BOT-DUDE</a> and say you want the Agent Broski demo. We walk you through a live-style example for a home-service call (no replacement for your own build, but you will know how we sound).</p>
-                    <a href="tel:+19802683833" class="btn btn-ghost">Call for the demo →</a>
+                    <a href="tel:+19802683833" class="btn btn-ghost" data-track-event="botdude_demo_call_click">Call the Demo Line</a>
                 </div>
             </div>
         </section>
 
-        <!-- ADDITIVE VALUE: NOT A REPLACEMENT -->
-        <section id="additive" aria-labelledby="additive-heading">
-            <div class="container">
-                <span class="section-label">CAPACITY, NOT REPLACEMENT</span>
-                <h2 id="additive-heading" class="headline">MORE REVENUE FROM THE SAME<br><i>PHONE LINE.</i></h2>
-                <p class="muted" style="font-size: 18px; max-width: 780px; margin-bottom: 2.5rem; line-height: 1.65;">
-                    <b>Every missed ring is cash walking to a competitor.</b> Broski adds coverage your team can’t cover: same trucks and techs, more answered calls, more booked jobs.
-                </p>
-                <div class="card-grid" style="grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));">
-                    <div class="card">
-                        <span class="card-title">Overflow &amp; peak hours</span>
-                        <p class="muted">When three lines blow up at once, Broski takes the queue so you don’t lose the fourth caller to voicemail.</p>
-                    </div>
-                    <div class="card">
-                        <span class="card-title">After-hours = money hours</span>
-                        <p class="muted">Emergency and "first to answer" wins, without paying a full night and weekend shift you can’t staff.</p>
-                    </div>
-                    <div class="card">
-                        <span class="card-title">Your brand, your prices</span>
-                        <p class="muted">It’s trained on <i>your</i> services and fees so conversations sound like you, not a random call center.</p>
-                    </div>
-                    <div class="card">
-                        <span class="card-title">Same marketing, more ROI</span>
-                        <p class="muted">If you’re buying Google LSA or leads, Broski helps convert that spend into booked jobs instead of dead air.</p>
-                    </div>
-                </div>
-                <div style="text-align: center; margin-top: 3rem;">
-                    <a href="#claim" class="btn btn-orange">Book a Free Call →</a>
-                </div>
-            </div>
-        </section>
-
-        <section id="who" aria-labelledby="who-heading">
-            <div class="container">
-                <span class="section-label">READY FOR</span>
-                <h2 id="who-heading" class="headline">BUILT FOR<br><i>HOME SERVICES.</i></h2>
-                <div class="card-grid">
-                    <div class="card">
-                        <span class="card-title">HVAC Companies</span>
-                        <p class="muted">Let Agent Broski handle emergency dispatch calls in the middle of a heatwave.</p>
-                    </div>
-                    <div class="card">
-                        <span class="card-title">Plumbers</span>
-                        <p class="muted">Screen pipe burst calls while you're already on another job.</p>
-                    </div>
-                    <div class="card">
-                        <span class="card-title">Roofers</span>
-                        <p class="muted">Book inspections the second the hail stops before the door-knockers arrive.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <div class="cta-band" role="region" aria-label="Schedule build">
-            <div class="container cta-band-inner">
-                <p class="cta-band-text">Ready to move? Spots are limited. Book your free call now, or call 980-BOT-DUDE first.</p>
-                <div class="cta-band-actions">
-                    <a href="tel:+19802683833" class="btn btn-ghost">Call first</a>
-                    <a href="#claim" class="btn btn-orange">Book a Free Call →</a>
-                </div>
-            </div>
-        </div>
-
-        <!-- FAQ -->
         <section id="faq" aria-labelledby="faq-heading">
             <div class="container" style="text-align: center;">
                 <span class="section-label">STRAIGHT ANSWERS</span>
@@ -4270,7 +4068,7 @@
                     <p class="faq-group-label">Integrations, transfers &amp; alternatives</p>
                     <details class="faq-item">
                         <summary>Can AI integrate with ServiceTitan, Google Calendar, or other tools?</summary>
-                        <p>Most businesses keep their published number and use <b>call forwarding</b> from the carrier, a CallRail tracking pool, or a PBX so unanswered, after-hours, or overflow paths reach Agent Broski. We connect calendars and job systems where your stack allows, including Google Calendar and platforms like ServiceTitan, Jobber, Housecall Pro, and similar CRM or field tools when APIs and permissions support it. Exact integrations depend on your accounts; we confirm on the qualification call before go-live. See <a href="#integrations" style="color: var(--primary-orange); font-weight: 700; text-decoration: none; border-bottom: 1px solid rgba(34, 211, 238, 0.35);">CRM &amp; forwarding</a> on this page for a fuller list.</p>
+                        <p>Most businesses keep their published number and use <b>call forwarding</b> from the carrier, a CallRail tracking pool, or a PBX so unanswered, after-hours, or overflow paths reach Agent Broski. We connect calendars and job systems where your stack allows, including Google Calendar and platforms like ServiceTitan, Jobber, Housecall Pro, and similar CRM or field tools when APIs and permissions support it. Exact integrations depend on your accounts; we confirm everything before go-live.</p>
                     </details>
                     <details class="faq-item">
                         <summary>Can AI transfer calls to me or my team?</summary>
@@ -4292,7 +4090,7 @@
                     </details>
                     <details class="faq-item">
                         <summary>How much does AI reception cost compared to hiring a full-time receptionist?</summary>
-                        <p>A full-time receptionist can cost tens of thousands per year in salary alone, plus benefits, turnover, and coverage gaps. After Broski is live, it’s <b>$697/month</b> on this offer, the <b>heavy upfront configuration is covered</b> for qualifying businesses so you’re not paying thousands in professional setup out of pocket first. <b>No long-term lock-in.</b></p>
+                        <p>A full-time receptionist can cost tens of thousands per year in salary alone, plus benefits, turnover, and coverage gaps. After Broski is live, it’s <b>$697/month</b> on this offer, the <b>heavy upfront configuration is covered</b> for qualifying businesses so you’re not paying thousands in professional setup out of pocket first. <b>No long-term contract.</b></p>
                     </details>
 
                     <p class="faq-group-label">Pricing, privacy &amp; go-live</p>
@@ -4335,28 +4133,26 @@
                     </div>
                 </div>
                 <div style="margin-top: 2.5rem;">
-                    <a href="#claim" class="btn btn-orange">Book a Free Call →</a>
+                    <a href="#claim" class="btn btn-orange">Claim My Free Bot Build</a>
                 </div>
             </div>
         </section>
 
-        <!-- CLAIM FORM -->
         <div class="cta-band" role="region" aria-label="Get in touch">
             <div class="container cta-band-inner">
                 <p class="cta-band-text">Questions about the offer or whether your business is a fit? Call 980-BOT-DUDE. Happy to talk shop before you book.</p>
                 <div class="cta-band-actions">
-                    <a href="tel:+19802683833" class="btn btn-ghost">980-BOT-DUDE</a>
-                    <a href="#claim" class="btn btn-orange">Book a Free Call →</a>
+                    <a href="tel:+19802683833" class="btn btn-ghost" data-track-event="botdude_demo_call_click">Call the Demo Line</a>
+                    <a href="#claim" class="btn btn-orange">Claim My Free Bot Build</a>
                 </div>
             </div>
         </div>
 
-        <!-- THE PROBLEM -->
         <section id="claim" aria-labelledby="claim-heading">
             <div class="container">
                 <div style="text-align: center;">
                     <span class="section-label">LIMITED SPOTS · FREE SETUP</span>
-                    <h2 id="claim-heading" class="headline">BOOK YOUR<br><i>FREE CALL.</i></h2>
+                    <h2 id="claim-heading" class="headline">CLAIM YOUR<br><i>FREE BOT BUILD.</i></h2>
                 </div>
                 <div class="form-container">
                     <form id="bot-form" name="claim-agent-broski">
@@ -4383,10 +4179,22 @@
                                 <option value="HVAC">HVAC</option>
                                 <option value="Plumbing">Plumbing</option>
                                 <option value="Roofing">Roofing</option>
+                                <option value="Electrical">Electrical</option>
+                                <option value="Restoration">Restoration</option>
+                                <option value="Landscaping">Landscaping</option>
+                                <option value="Demolition">Demolition</option>
                                 <option value="Other">Other</option>
                             </select>
                         </div>
-                        <button type="submit" class="btn btn-orange" style="width: 100%; padding: 20px; font-size: 16px;">Book My Free Call →</button>
+                        <!-- Connect these attribution fields to the form backend when a destination is added. -->
+                        <input type="hidden" name="utm_source" data-attribution-field="utm_source">
+                        <input type="hidden" name="utm_medium" data-attribution-field="utm_medium">
+                        <input type="hidden" name="utm_campaign" data-attribution-field="utm_campaign">
+                        <input type="hidden" name="utm_content" data-attribution-field="utm_content">
+                        <input type="hidden" name="referrer" data-attribution-field="referrer">
+                        <input type="hidden" name="landing_page" data-attribution-field="landing_page">
+                        <input type="hidden" name="first_seen_at" data-attribution-field="first_seen_at">
+                        <button type="submit" class="btn btn-orange" style="width: 100%; padding: 20px; font-size: 16px;">Claim My Free Bot Build</button>
                         <p class="cta-microcopy" style="text-align: center; max-width: none; margin-top: 0.75rem;">We read every submission. If you are a fit, we reach out within 24 hours.</p>
                         <div id="success-msg" role="status" aria-live="polite">Request received. We will be in touch within 24 hours to schedule your call. 🤖</div>
                     </form>
@@ -4396,19 +4204,20 @@
                 </div>
             </div>
         </section>
+
     </main>
 
     <div class="sales-dock" aria-label="Quick actions">
-        <a href="tel:+19802683833" class="btn btn-ghost">Call Now</a>
-        <a href="#claim" class="btn btn-orange sales-dock-claim">Book a Free Call →</a>
+        <a href="tel:+19802683833" class="btn btn-ghost" data-track-event="botdude_mobile_call_click">Call Demo</a>
+        <a href="#claim" class="btn btn-orange sales-dock-claim" data-track-event="botdude_mobile_claim_click">Claim Free Build</a>
     </div>
 
     <!-- FOOTER -->
     <footer>
         <div class="container footer-grid">
-            <div>
-                <a href="#" class="logo logo-with-mascot" style="display: block; margin-bottom: 0.5rem;">
-                    <img src="assets/botdude-mascot.jpg" alt="" class="logo-mascot" width="36" height="36" decoding="async">
+            <div style="text-align: center;">
+                <a href="#" class="logo logo-with-mascot" style="display: flex; justify-content: center; align-items: center; margin-bottom: 0.5rem;">
+                    <img src="assets/botdude-mascot.jpg" alt="" class="logo-mascot" width="52" height="52" decoding="async" style="width: 52px; height: 52px;">
                     <span class="logo-wordmark">Botdude.AI</span>
                 </a>
                 <p class="muted" style="font-size: 13px;">Powered by Brobot LLC</p>
@@ -4417,11 +4226,9 @@
                 <p class="footer-quicklinks muted" style="font-size: 13px; margin-bottom: 10px;">
                     <a href="#the-offer">The offer</a>
                     <span aria-hidden="true"> &nbsp;·&nbsp; </span>
-                    <a href="#compare-paths">Compare</a>
-                    <span aria-hidden="true"> &nbsp;·&nbsp; </span>
                     <a href="#calculator">Estimator</a>
                     <span aria-hidden="true"> &nbsp;·&nbsp; </span>
-                    <a href="#additive">Why AI</a>
+                    <a href="#how">How it works</a>
                     <span aria-hidden="true"> &nbsp;·&nbsp; </span>
                     <a href="#faq">FAQ</a>
                     <span aria-hidden="true"> &nbsp;·&nbsp; </span>
@@ -4475,21 +4282,120 @@
             }
         });
 
-        // --- Hero overview video: set to your YouTube video id (11 characters after v= in the URL) ---
-        const OFFER_VIDEO_YOUTUBE_ID = '';
-        (function () {
-            var raw = typeof OFFER_VIDEO_YOUTUBE_ID === 'string' ? OFFER_VIDEO_YOUTUBE_ID.trim() : '';
-            var iframe = document.getElementById('offer-video-iframe');
-            var note = document.getElementById('offer-video-setup-note');
-            if (!iframe) return;
-            var wrap = iframe.closest('.offer-video-frame-wrap');
-            if (/^[a-zA-Z0-9_-]{6,32}$/.test(raw)) {
-                iframe.src = 'https://www.youtube-nocookie.com/embed/' + encodeURIComponent(raw) + '?rel=0&modestbranding=1';
-                iframe.removeAttribute('hidden');
-                if (note) note.hidden = true;
-            } else {
-                if (wrap) wrap.style.display = 'none';
+        // --- Lightweight tracking and attribution ---
+        const BOTDUDE_ATTRIBUTION_KEY = 'botdude_attribution';
+        const BOTDUDE_ATTRIBUTION_FIELDS = [
+            'utm_source',
+            'utm_medium',
+            'utm_campaign',
+            'utm_content',
+            'referrer',
+            'landing_page',
+            'first_seen_at'
+        ];
+
+        const trackBotDudeEvent = (eventName, detail) => {
+            if (!eventName || !window.dataLayer || typeof window.dataLayer.push !== 'function') return;
+            window.dataLayer.push(Object.assign({ event: eventName }, detail || {}));
+        };
+
+        const readStoredAttribution = () => {
+            try {
+                return JSON.parse(localStorage.getItem(BOTDUDE_ATTRIBUTION_KEY) || '{}') || {};
+            } catch (e) {
+                return {};
             }
+        };
+
+        const writeStoredAttribution = (data) => {
+            try {
+                localStorage.setItem(BOTDUDE_ATTRIBUTION_KEY, JSON.stringify(data));
+            } catch (e) {
+                return;
+            }
+        };
+
+        const fillAttributionFields = (data) => {
+            BOTDUDE_ATTRIBUTION_FIELDS.forEach((field) => {
+                document.querySelectorAll('[data-attribution-field="' + field + '"]').forEach((input) => {
+                    input.value = data[field] || '';
+                });
+            });
+        };
+
+        const syncCampaignBadge = (source) => {
+            const badge = document.getElementById('campaign-source-badge');
+            if (!badge || !source) return;
+            const normalized = String(source).trim().toLowerCase();
+            const labels = {
+                tiktok: 'From TikTok',
+                instagram: 'From Instagram',
+                youtube: 'From YouTube',
+                facebook: 'From Facebook'
+            };
+            if (!labels[normalized]) return;
+            badge.textContent = labels[normalized];
+            badge.hidden = false;
+        };
+
+        (function captureAttribution() {
+            const params = new URLSearchParams(window.location.search);
+            const stored = readStoredAttribution();
+            const src = params.get('src') || '';
+            const attribution = {
+                utm_source: params.get('utm_source') || src || stored.utm_source || '',
+                utm_medium: params.get('utm_medium') || stored.utm_medium || '',
+                utm_campaign: params.get('utm_campaign') || stored.utm_campaign || '',
+                utm_content: params.get('utm_content') || stored.utm_content || '',
+                referrer: stored.referrer || document.referrer || '',
+                landing_page: stored.landing_page || window.location.href,
+                first_seen_at: stored.first_seen_at || new Date().toISOString()
+            };
+
+            writeStoredAttribution(attribution);
+            fillAttributionFields(attribution);
+            syncCampaignBadge(src || params.get('utm_source') || attribution.utm_source);
+        })();
+
+        document.querySelectorAll('[data-track-event]').forEach((el) => {
+            el.addEventListener('click', () => {
+                trackBotDudeEvent(el.getAttribute('data-track-event'));
+            });
+        });
+
+        // --- Offer overview video play tracking ---
+        (function () {
+            var video = document.getElementById('offer-video-player');
+            var overlay = document.getElementById('offer-video-overlay');
+            if (!video) return;
+            var tracked = false;
+
+            var hideOverlay = function () {
+                if (!overlay) return;
+                overlay.classList.add('is-hidden');
+                overlay.setAttribute('aria-hidden', 'true');
+            };
+
+            var showOverlay = function () {
+                if (!overlay) return;
+                overlay.classList.remove('is-hidden');
+                overlay.setAttribute('aria-hidden', 'false');
+            };
+
+            if (overlay) {
+                overlay.addEventListener('click', function () {
+                    video.play();
+                });
+            }
+
+            video.addEventListener('play', function () {
+                hideOverlay();
+                if (tracked) return;
+                tracked = true;
+                trackBotDudeEvent('botdude_video_play_click');
+            });
+
+            video.addEventListener('ended', showOverlay);
         })();
 
         // --- Revenue leak: (missed calls per week × weeks per month) × lead conversion × average job profit ---
@@ -4540,7 +4446,12 @@
             totalLoss.textContent = '$' + loss.toLocaleString();
         };
 
+        let calculatorTracked = false;
         const onCalcInput = () => {
+            if (!calculatorTracked) {
+                trackBotDudeEvent('botdude_calculator_used');
+                calculatorTracked = true;
+            }
             syncLeadConversionUi();
             updateCalc();
         };
@@ -4597,6 +4508,7 @@
         // --- Form Submission ---
         document.getElementById('bot-form').addEventListener('submit', function(e) {
             e.preventDefault();
+            trackBotDudeEvent('botdude_form_submit');
             const btn = this.querySelector('button');
             const msg = document.getElementById('success-msg');
 
