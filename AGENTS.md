@@ -12,7 +12,7 @@ Most traffic is expected from TikTok, Instagram, Facebook, YouTube Shorts, ads, 
 Keep these offer details exact:
 
 - $3,000 custom setup waived for qualifying businesses.
-- $697/month if they keep it.
+- Monthly price stays $697 internally. On the public page, say a fraction of your lost job revenue (do not print $697).
 - No long-term contract.
 - Limited monthly build spots.
 
@@ -48,6 +48,6 @@ http://localhost:3000
 Useful checks:
 
 ```bash
-rg -n "\\$3,000|\\$697/month|980-BOT-DUDE|Claim My Free Bot Build" index.html
+rg -n "\\$3,000|fraction of your lost job revenue|980-BOT-DUDE|Claim My Free Bot Build" index.html
 rg -n "botdude_hero_claim_click|botdude_demo_call_click|botdude_video_play_click|botdude_calculator_used|botdude_form_submit|botdude_mobile_call_click|botdude_mobile_claim_click" index.html
 ```
