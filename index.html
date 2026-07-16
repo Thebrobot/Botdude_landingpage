@@ -463,6 +463,10 @@
             white-space: nowrap;
         }
 
+        a.nav-book-call.btn {
+            display: none;
+        }
+
         @media (min-width: 969px) {
             .nav-end {
                 display: none;
@@ -2603,10 +2607,13 @@
             left: 0;
             right: 0;
             z-index: 998;
-            padding: 0.65rem 1rem;
-            padding-bottom: max(0.65rem, env(safe-area-inset-bottom, 0px));
-            gap: 0.65rem;
-            align-items: center;
+            width: 100%;
+            max-width: 100%;
+            box-sizing: border-box;
+            padding: 0.6rem 0.75rem;
+            padding-bottom: max(0.6rem, env(safe-area-inset-bottom, 0px));
+            gap: 0.5rem;
+            align-items: stretch;
             justify-content: center;
             flex-wrap: nowrap;
             background: rgba(2, 6, 23, 0.92);
@@ -2617,23 +2624,30 @@
         }
 
         .sales-dock .btn {
-            flex: 1;
+            flex: 1 1 0;
             min-width: 0;
+            max-width: 100%;
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
-            padding: 14px 16px;
-            font-size: 12px;
-            letter-spacing: 0.1em;
+            padding: 0.85rem 0.65rem;
+            font-size: 11px;
+            letter-spacing: 0.04em;
             height: 48px;
             display: flex;
             align-items: center;
             justify-content: center;
             box-sizing: border-box;
+            transform: none;
         }
 
         .sales-dock .sales-dock-claim {
-            flex: 1.35;
+            flex: 1.15 1 0;
+        }
+
+        .sales-dock .btn:hover,
+        .sales-dock .btn:active {
+            transform: none;
         }
 
         @media (max-width: 968px) {
@@ -2984,6 +2998,7 @@
 
         /* Tablet and below */
         @media (max-width: 968px) {
+            .container { padding: 0 1.25rem; }
             .hero-copy-col {
                 text-align: center;
                 align-items: center;
@@ -3002,27 +3017,43 @@
             .social-links { align-items: center; }
             .hero-cta-row { justify-content: center !important; }
             .nav-actions { display: none; }
-            .nav-cluster { margin-left: auto; }
-            a.nav-book-call.btn {
-                display: inline-block;
-                max-width: min(11.5rem, calc(100vw - 11.5rem));
-                padding: 0.85rem 1rem;
-                font-size: 11px;
-                letter-spacing: 0.08em;
-                overflow: hidden;
-                text-overflow: ellipsis;
+            .nav-cluster {
+                margin-left: auto;
+                flex-shrink: 0;
+                min-width: 0;
+            }
+            .nav-end {
+                min-width: 0;
             }
             .nav-content {
-                gap: 0.65rem;
-                padding-left: 0;
-                padding-right: 0;
+                gap: 0.75rem;
+                width: 100%;
+                max-width: 100%;
+                box-sizing: border-box;
+            }
+            .logo.logo-with-mascot {
+                flex-shrink: 1;
+                min-width: 0;
             }
             .logo-with-mascot .logo-mascot {
-                width: 34px;
-                height: 34px;
+                width: 32px;
+                height: 32px;
             }
             .logo-with-mascot .logo-wordmark {
-                font-size: 1.2rem;
+                font-size: 1.15rem;
+            }
+            a.nav-book-call.btn {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                flex-shrink: 0;
+                max-width: none;
+                padding: 0.7rem 0.95rem;
+                font-size: 11px;
+                letter-spacing: 0.05em;
+                overflow: visible;
+                text-overflow: clip;
+                white-space: nowrap;
             }
             .offer-cta-row {
                 flex-direction: column;
@@ -3124,15 +3155,56 @@
 
             .compare-card { padding: 1.25rem 1rem; border-radius: 1rem; }
 
-            .sales-dock {
-                padding-left: 0.75rem;
-                padding-right: 0.75rem;
-                gap: 0.5rem;
+            .logo-with-mascot .logo-wordmark {
+                display: inline;
+                font-size: 1.05rem;
+                letter-spacing: 0.04em;
             }
-            .sales-dock .btn {
-                padding: 14px 10px;
+
+            a.nav-book-call.btn {
+                padding: 0.7rem 0.9rem;
                 font-size: 11px;
+                letter-spacing: 0.04em;
+            }
+
+            .offer-video-overlay {
+                padding: 1rem 0.85rem 1.15rem;
+                gap: 0.55rem;
+                justify-content: center;
+            }
+
+            .offer-video-overlay-headline {
+                font-size: clamp(1.35rem, 6.5vw, 1.85rem);
+                letter-spacing: 0.02em;
+                line-height: 1.05;
+            }
+
+            .offer-video-overlay-sub {
+                max-width: 16rem;
+                font-size: 0.88rem;
+                line-height: 1.4;
+            }
+
+            .hero-offer-video-lead {
+                font-size: 0.85rem;
                 letter-spacing: 0.06em;
+                margin-bottom: 0.75rem;
+            }
+
+            .hero-copy-col {
+                padding-left: 1.15rem;
+                padding-right: 1.15rem;
+            }
+
+            .hero-desc-short {
+                padding-left: 0.15rem;
+                padding-right: 0.15rem;
+                max-width: 34rem;
+            }
+
+            nav {
+                padding-top: 0.85rem;
+                padding-bottom: 0.85rem;
             }
         }
 
@@ -3140,22 +3212,26 @@
         @media (max-width: 390px) {
             .container { padding: 0 1rem; }
             .headline { font-size: clamp(24px, 7vw, 32px); }
-            .headline-hero-ring { font-size: clamp(1.6rem, 8vw, 2.2rem); }
+            .headline-hero-ring { font-size: clamp(1.55rem, 7.2vw, 2.05rem); }
             .hero-phone-mockup { width: min(175px, 58vw); }
             .hero-hl-247 { font-size: clamp(2.4rem, 22cqw, 5rem) !important; }
-            .btn { padding: 1rem 1.75rem; font-size: 12px; letter-spacing: 0.14em; }
+            .btn { padding: 1rem 1.35rem; font-size: 12px; letter-spacing: 0.1em; }
             .form-container { padding: 1.25rem 0.9rem; }
             .the-offer-panel { padding: 1.15rem 0.9rem; }
-            a.nav-book-call.btn {
-                max-width: min(9.75rem, calc(100vw - 10.5rem));
-                padding: 0.75rem 0.85rem;
-                font-size: 10px;
-                letter-spacing: 0.06em;
+            .hero-copy-col {
+                padding-left: 1rem;
+                padding-right: 1rem;
             }
-            .sales-dock .btn {
-                padding: 14px 8px;
+            a.nav-book-call.btn {
+                padding: 0.65rem 0.8rem;
                 font-size: 10px;
-                letter-spacing: 0.04em;
+                letter-spacing: 0.03em;
+            }
+            .logo-with-mascot .logo-wordmark {
+                font-size: 0.95rem;
+            }
+            .offer-video-overlay-headline {
+                font-size: clamp(1.2rem, 6vw, 1.55rem);
             }
         }
 
@@ -4108,7 +4184,7 @@
                         <a href="#claim" class="btn btn-orange" data-track-event="botdude_hero_claim_click">Claim My Free Bot Build</a>
                     </div>
                     <div class="nav-end">
-                        <a href="#claim" class="btn btn-orange nav-book-call" data-track-event="botdude_hero_claim_click">Claim Free Build</a>
+                        <a href="#claim" class="btn btn-orange nav-book-call" data-track-event="botdude_hero_claim_click">Claim</a>
                     </div>
                 </div>
             </div>
@@ -4797,8 +4873,8 @@
     </main>
 
     <div class="sales-dock" aria-label="Quick actions">
-        <a href="tel:+19802683833" class="btn btn-ghost" data-track-event="botdude_mobile_call_click">Call Demo</a>
-        <a href="#claim" class="btn btn-orange sales-dock-claim" data-track-event="botdude_mobile_claim_click">Claim Free Build</a>
+        <a href="tel:+19802683833" class="btn btn-ghost" data-track-event="botdude_mobile_call_click">Call</a>
+        <a href="#claim" class="btn btn-orange sales-dock-claim" data-track-event="botdude_mobile_claim_click">Claim Spot</a>
     </div>
 
     <!-- FOOTER -->
@@ -5270,22 +5346,43 @@
                     : 'Not a generic chatbot. Built for <b>crews, vans, and emergency calls</b> across every major home service trade.'
             );
 
-            document.querySelectorAll(
-                'a.btn-orange[data-track-event="botdude_hero_claim_click"], #trades-bento .btn-orange, #bot-form button[type="submit"]'
-            ).forEach((btn) => {
-                const inNav = btn.closest('#main-nav');
-                if (inNav) {
-                    /* Keep nav short so niche labels never overflow the mobile header. */
-                    btn.textContent = 'Claim Free Build';
-                } else {
-                    btn.textContent = copy.claimCta;
+            function applyClaimLabels(copy) {
+                const compactNav = window.matchMedia('(max-width: 968px)').matches;
+                document.querySelectorAll(
+                    'a.btn-orange[data-track-event="botdude_hero_claim_click"], #trades-bento .btn-orange, #bot-form button[type="submit"]'
+                ).forEach((btn) => {
+                    const inNav = btn.closest('#main-nav');
+                    if (inNav) {
+                        /* Short label only in the compact/mobile header. Desktop keeps the full CTA. */
+                        btn.textContent = compactNav ? 'Claim' : copy.claimCta;
+                    } else {
+                        btn.textContent = copy.claimCta;
+                    }
+                });
+                const mobileClaim = document.querySelector('a.btn-orange[data-track-event="botdude_mobile_claim_click"]');
+                if (mobileClaim) {
+                    mobileClaim.textContent = 'Claim Spot';
                 }
-            });
-            const mobileClaim = document.querySelector('a.btn-orange[data-track-event="botdude_mobile_claim_click"]');
-            if (mobileClaim) {
-                /* Dock stays short on SE-width phones; niche lives in in-page CTAs. */
-                mobileClaim.textContent = 'Claim Free Build';
+                const mobileCall = document.querySelector('a.btn-ghost[data-track-event="botdude_mobile_call_click"]');
+                if (mobileCall) {
+                    mobileCall.textContent = 'Call';
+                }
             }
+
+            applyClaimLabels(copy);
+
+            if (!window.__botdudeClaimLabelResizeBound) {
+                window.__botdudeClaimLabelResizeBound = true;
+                let labelResizeTimer = null;
+                window.addEventListener('resize', () => {
+                    window.clearTimeout(labelResizeTimer);
+                    labelResizeTimer = window.setTimeout(() => {
+                        const activeCopy = window.__botdudeActiveCopy;
+                        if (activeCopy) applyClaimLabels(activeCopy);
+                    }, 120);
+                });
+            }
+            window.__botdudeActiveCopy = copy;
 
             const claimNiche = document.getElementById('claim-niche');
             const claimGateBiz = document.getElementById('claim-gate-business');
