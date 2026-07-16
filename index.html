@@ -1094,16 +1094,6 @@
             max-width: 40rem;
         }
 
-        .hero-kicker-row {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            align-items: center;
-            gap: 0.55rem;
-            margin-bottom: 1.1rem;
-        }
-
-        .hero-audience,
         .campaign-source-badge {
             display: inline-flex;
             align-items: center;
@@ -1114,15 +1104,10 @@
             font-weight: 900;
             letter-spacing: 0.14em;
             text-transform: uppercase;
-            color: #B2EFF8;
-            border: 1px solid rgba(0, 229, 255, 0.32);
-            background: rgba(0, 229, 255, 0.08);
-        }
-
-        .campaign-source-badge {
             color: #ffffff;
-            border-color: rgba(255, 255, 255, 0.18);
+            border: 1px solid rgba(255, 255, 255, 0.18);
             background: rgba(255, 255, 255, 0.08);
+            margin: 0 auto 1.1rem;
         }
 
         .campaign-source-badge[hidden] {
@@ -1302,27 +1287,17 @@
         .offer-video-overlay-headline {
             margin: 0;
             font-family: var(--font-display);
-            font-size: clamp(2.25rem, 8vw, 4.25rem);
+            font-size: clamp(1.35rem, 3.5vw, 2rem);
             font-weight: 800;
-            line-height: 0.95;
-            letter-spacing: 0.04em;
+            line-height: 1.1;
+            letter-spacing: 0.06em;
             text-transform: uppercase;
             color: #fff;
             text-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
         }
 
         .offer-video-overlay-sub {
-            margin: 0;
-            max-width: 18rem;
-            font-size: clamp(0.95rem, 2.6vw, 1.05rem);
-            font-weight: 600;
-            line-height: 1.45;
-            color: rgba(255, 255, 255, 0.88);
-        }
-
-        .offer-video-overlay-sub strong {
-            color: var(--primary-orange);
-            font-weight: 800;
+            display: none;
         }
 
         .lead-hero-tight {
@@ -3048,9 +3023,9 @@
                 justify-content: center;
                 flex-shrink: 0;
                 max-width: none;
-                padding: 0.7rem 0.95rem;
-                font-size: 11px;
-                letter-spacing: 0.05em;
+                padding: 0.65rem 0.8rem;
+                font-size: 10px;
+                letter-spacing: 0.03em;
                 overflow: visible;
                 text-overflow: clip;
                 white-space: nowrap;
@@ -3162,33 +3137,20 @@
             }
 
             a.nav-book-call.btn {
-                padding: 0.7rem 0.9rem;
-                font-size: 11px;
-                letter-spacing: 0.04em;
+                padding: 0.6rem 0.7rem;
+                font-size: 9px;
+                letter-spacing: 0.02em;
             }
 
             .offer-video-overlay {
-                padding: 1rem 0.85rem 1.15rem;
-                gap: 0.55rem;
+                padding: 1rem 0.85rem;
+                gap: 0.65rem;
                 justify-content: center;
             }
 
             .offer-video-overlay-headline {
-                font-size: clamp(1.35rem, 6.5vw, 1.85rem);
-                letter-spacing: 0.02em;
-                line-height: 1.05;
-            }
-
-            .offer-video-overlay-sub {
-                max-width: 16rem;
-                font-size: 0.88rem;
-                line-height: 1.4;
-            }
-
-            .hero-offer-video-lead {
-                font-size: 0.85rem;
-                letter-spacing: 0.06em;
-                margin-bottom: 0.75rem;
+                font-size: clamp(1.15rem, 4.5vw, 1.45rem);
+                letter-spacing: 0.05em;
             }
 
             .hero-copy-col {
@@ -3223,15 +3185,15 @@
                 padding-right: 1rem;
             }
             a.nav-book-call.btn {
-                padding: 0.65rem 0.8rem;
-                font-size: 10px;
-                letter-spacing: 0.03em;
+                padding: 0.55rem 0.65rem;
+                font-size: 9px;
+                letter-spacing: 0.02em;
             }
             .logo-with-mascot .logo-wordmark {
                 font-size: 0.95rem;
             }
             .offer-video-overlay-headline {
-                font-size: clamp(1.2rem, 6vw, 1.55rem);
+                font-size: clamp(1.1rem, 4.2vw, 1.35rem);
             }
         }
 
@@ -3632,14 +3594,12 @@
                 display: flex;
                 flex-direction: column;
             }
-            .hero-kicker-row          { order: 1; }
-            #hero-promise             { order: 2; }
-            .headline-hero-ring       { order: 3; }
-            .hero-audio-viz           { order: 4; }
-            .hero-offer-video         { order: 5; margin-top: 1rem; }
-            .hero-desc-short          { order: 6; margin-top: 1.25rem; }
-            .hero-trade-line          { order: 7; }
-            .hero-bridge              { order: 8; }
+            #hero-promise             { order: 1; }
+            .headline-hero-ring       { order: 2; }
+            .hero-audio-viz           { order: 3; }
+            .hero-offer-video         { order: 4; margin-top: 1rem; }
+            .hero-desc-short          { order: 5; margin-top: 1.25rem; }
+            .hero-bridge              { order: 6; }
         }
 
         /* Without vs. With section */
@@ -4181,10 +4141,10 @@
                 <div class="nav-cluster">
                     <div class="nav-actions">
                         <a href="tel:+19802683833" class="btn btn-ghost" data-track-event="botdude_demo_call_click">Call the Demo Line</a>
-                        <a href="#claim" class="btn btn-orange" data-track-event="botdude_hero_claim_click">Claim My Free Bot Build</a>
+                        <a href="#claim" class="btn btn-orange" data-track-event="botdude_hero_claim_click">Book an Appointment</a>
                     </div>
                     <div class="nav-end">
-                        <a href="#claim" class="btn btn-orange nav-book-call" data-track-event="botdude_hero_claim_click">Claim</a>
+                        <a href="#claim" class="btn btn-orange nav-book-call" data-track-event="botdude_hero_claim_click">Book an Appointment</a>
                     </div>
                 </div>
             </div>
@@ -4198,10 +4158,7 @@
             <div class="hero-split">
                 <div class="hero-copy-col">
                     <div class="hero-copy-inner">
-                        <div class="hero-kicker-row">
-                            <p class="hero-audience" data-personalize="audience">For Home Service Owners.</p>
-                            <span id="campaign-source-badge" class="campaign-source-badge" hidden></span>
-                        </div>
+                        <span id="campaign-source-badge" class="campaign-source-badge" hidden></span>
                         <p class="visually-hidden" id="hero-promise" data-personalize="promise">Agent Broski books more jobs and eliminates missed calls for home service businesses.</p>
                         <h1 id="hero-heading" class="headline-hero-ring" aria-describedby="hero-promise">
                             <span class="hero-hl-line1" data-personalize="headline">More Booked Jobs.<br>Less Voicemail.</span>
@@ -4223,11 +4180,10 @@
                         </div>
                         <p class="hero-desc-short" data-personalize="desc">Every missed call is a job going to your competitor. <b>Agent Broski</b> answers 24/7, qualifies the caller, books the appointment, and texts the confirmation automatically. Your phone keeps working whether you are on a job, asleep, or just done for the day.</p>
                         <div id="offer-video" class="hero-offer-video reveal" aria-label="Offer overview video">
-                            <p class="hero-offer-video-lead">Free overview · I explain the whole offer</p>
                             <div class="offer-video-frame-wrap">
                                 <video
                                     id="offer-video-player"
-                                    title="Bot Dude: the build, your line, and the offer (overview video)"
+                                    title="Bot Dude offer overview"
                                     controls
                                     playsinline
                                     preload="metadata"
@@ -4246,19 +4202,16 @@
                                     <span class="offer-video-overlay-play" aria-hidden="true">
                                         <svg viewBox="0 0 24 24" focusable="false"><path d="M8 5v14l11-7z"/></svg>
                                     </span>
-                                    <p class="offer-video-overlay-headline" data-personalize="videoHeadline">Watch this first.</p>
-                                    <p class="offer-video-overlay-sub" data-personalize="videoSub">Hit play. <strong>I walk through the build, your line, and the offer.</strong></p>
+                                    <p class="offer-video-overlay-headline" data-personalize="videoHeadline">Play to see how it works.</p>
                                 </button>
                             </div>
                         </div>
-                        <p class="hero-trade-line" data-personalize="tradeLine">Built for HVAC, plumbing, roofing, electrical, restoration, landscaping, demolition, and local service businesses.</p>
                         <div class="hero-bridge">
                             <div class="hero-bridge-cta" id="hero-cta-anchor">
                                 <div class="hero-cta-row">
-                                    <a href="#claim" class="btn btn-orange" data-track-event="botdude_hero_claim_click">Claim My Free Bot Build</a>
+                                    <a href="#claim" class="btn btn-orange" data-track-event="botdude_hero_claim_click">Book an Appointment</a>
                                     <a href="tel:+19802683833" class="btn btn-ghost" data-track-event="botdude_demo_call_click">Call the Demo Line</a>
                                 </div>
-                                <p class="hero-phone-line muted">Hear Agent Broski live before you commit. Call <a href="tel:+19802683833" style="color: var(--primary-orange); font-weight: 700; text-decoration: none;" data-track-event="botdude_demo_call_click">980-BOT-DUDE</a> and say you want the demo.</p>
                             </div>
                         </div>
                     </div>
@@ -4358,7 +4311,7 @@
                         </div>
                     </div>
                     <div class="calc-cta-wrap">
-                        <a href="#claim" class="btn btn-orange" data-track-event="botdude_hero_claim_click">Claim My Free Bot Build</a>
+                        <a href="#claim" class="btn btn-orange" data-track-event="botdude_hero_claim_click">Book an Appointment</a>
                         <div class="calc-cta-links">
                             <a href="tel:+19802683833" class="calc-link-muted" data-track-event="botdude_demo_call_click">Call 980-BOT-DUDE</a>
                         </div>
@@ -4488,7 +4441,7 @@
                     </div>
                 </div>
                 <div style="text-align: center; margin-top: 4rem;">
-                    <a href="#claim" class="btn btn-orange">Claim My Free Bot Build</a>
+                    <a href="#claim" class="btn btn-orange">Book an Appointment</a>
                     <p class="cta-microcopy" style="margin-left: auto; margin-right: auto; max-width: 360px;">After you book, we reach out within 24 hours to confirm.</p>
                 </div>
             </div>
@@ -4512,7 +4465,7 @@
                         When the month fills, you wait. If voicemail is costing you money, waiting costs more than booking a call.
                     </p>
                     <div class="offer-cta-row">
-                        <a href="#claim" class="btn btn-orange">Claim My Free Bot Build</a>
+                        <a href="#claim" class="btn btn-orange">Book an Appointment</a>
                         <a href="tel:+19802683833" class="btn btn-ghost" data-track-event="botdude_demo_call_click">Call the Demo Line</a>
                     </div>
                 </div>
@@ -4569,7 +4522,7 @@
                     </article>
                 </div>
                 <div style="text-align: center; margin-top: 2rem;">
-                    <a href="#claim" class="btn btn-orange">Claim My Free Bot Build</a>
+                    <a href="#claim" class="btn btn-orange">Book an Appointment</a>
                 </div>
             </div>
         </section>
@@ -4669,7 +4622,7 @@
                 </div>
 
                 <div class="trades-bento-cta">
-                    <a href="#claim" class="btn btn-orange">Claim My Free Bot Build</a>
+                    <a href="#claim" class="btn btn-orange">Book an Appointment</a>
                     <p style="margin-top: 1.25rem; font-size: 14px; color: var(--muted-text);">
                         We build across local service trades. <a href="https://thebrobot.com/industries/" target="_blank" rel="noopener noreferrer" style="color: var(--primary-orange); font-weight: 700; text-decoration: none; border-bottom: 1px solid rgba(0, 229, 255, 0.35);">See industries at thebrobot.com →</a>
                     </p>
@@ -4816,7 +4769,7 @@
                     </div>
                 </div>
                 <div style="margin-top: 2.5rem;">
-                    <a href="#claim" class="btn btn-orange">Claim My Free Bot Build</a>
+                    <a href="#claim" class="btn btn-orange">Book an Appointment</a>
                 </div>
             </div>
         </section>
@@ -4858,7 +4811,7 @@
                         <input type="hidden" name="referrer" data-attribution-field="referrer">
                         <input type="hidden" name="landing_page" data-attribution-field="landing_page">
                         <input type="hidden" name="first_seen_at" data-attribution-field="first_seen_at">
-                        <button type="submit" class="btn btn-orange" style="width: 100%; padding: 20px; font-size: 16px;">Claim My Free Bot Build</button>
+                        <button type="submit" class="btn btn-orange" style="width: 100%; padding: 20px; font-size: 16px;">Book an Appointment</button>
                         <p class="cta-microcopy" style="text-align: center; max-width: none; margin-top: 0.75rem;" data-personalize="claimMicro">We read every submission. If you are a fit, we reach out within 24 hours.</p>
                         <div id="form-error-msg" role="alert" aria-live="assertive"></div>
                         <div id="success-msg" role="status" aria-live="polite">Request received. We will be in touch within 24 hours to schedule your call. 🤖</div>
@@ -4874,7 +4827,7 @@
 
     <div class="sales-dock" aria-label="Quick actions">
         <a href="tel:+19802683833" class="btn btn-ghost" data-track-event="botdude_mobile_call_click">Call</a>
-        <a href="#claim" class="btn btn-orange sales-dock-claim" data-track-event="botdude_mobile_claim_click">Claim Spot</a>
+        <a href="#claim" class="btn btn-orange sales-dock-claim" data-track-event="botdude_mobile_claim_click">Book an Appointment</a>
     </div>
 
     <!-- FOOTER -->
@@ -5042,7 +4995,7 @@
                 calcIntro: 'Missed HVAC calls during heat waves and after hours add up fast. See what voicemail is costing your shop.',
                 faqAgent: 'On every ring it should do real work: answer in your voice, qualify the HVAC job, book or capture the lead, text back fast, and route no-cool emergencies the way you said. That is what we ship as an AI receptionist. Agent Broski is built for HVAC shops so fewer service calls die in voicemail.',
                 claimHeading: 'CLAIM YOUR<br><i>FREE HVAC BOT.</i>',
-                claimCta: 'Claim My Free HVAC Bot Build',
+                claimCta: 'Book an Appointment',
                 calcProfit: 1500,
                 tradeTile: 'hvac'
             },
@@ -5063,7 +5016,7 @@
                 calcIntro: 'Missed leak and clog calls do not wait. See what voicemail is costing your plumbing shop.',
                 faqAgent: 'On every ring it should do real work: answer in your voice, qualify the plumbing job, book or capture the lead, text back fast, and route flood and gas emergencies the way you said. Agent Broski is built for plumbing shops so fewer calls die in voicemail.',
                 claimHeading: 'CLAIM YOUR<br><i>FREE PLUMBING BOT.</i>',
-                claimCta: 'Claim My Free Plumbing Bot Build',
+                claimCta: 'Book an Appointment',
                 calcProfit: 1200,
                 tradeTile: 'plumbing'
             },
@@ -5084,7 +5037,7 @@
                 calcIntro: 'Missed storm and inspection calls are expensive. See what voicemail is costing your roofing company.',
                 faqAgent: 'On every ring it should do real work: answer in your voice, qualify the roofing lead, book an inspection or capture the job, text back fast, and escalate urgent storm damage the way you said. Agent Broski is built for roofing crews so fewer leads die in voicemail.',
                 claimHeading: 'CLAIM YOUR<br><i>FREE ROOFING BOT.</i>',
-                claimCta: 'Claim My Free Roofing Bot Build',
+                claimCta: 'Book an Appointment',
                 calcProfit: 2500,
                 tradeTile: 'roofing'
             },
@@ -5105,7 +5058,7 @@
                 calcIntro: 'Missed electrical service calls add up fast. See what voicemail is costing your shop.',
                 faqAgent: 'On every ring it should do real work: answer in your voice, qualify the electrical job, book or capture the lead, text back fast, and route power-out emergencies the way you said. Agent Broski is built for electrical shops so fewer calls die in voicemail.',
                 claimHeading: 'CLAIM YOUR<br><i>FREE ELECTRICAL BOT.</i>',
-                claimCta: 'Claim My Free Electrical Bot Build',
+                claimCta: 'Book an Appointment',
                 calcProfit: 1400,
                 tradeTile: 'electrical'
             },
@@ -5126,7 +5079,7 @@
                 calcIntro: 'Missed mitigation calls do not wait overnight. See what unanswered rings cost your restoration company.',
                 faqAgent: 'On every ring it should do real work: answer in your voice, qualify urgency, capture job details, text back fast, and route water or fire emergencies the way you said. Agent Broski is built for restoration shops so fewer emergency calls die in voicemail.',
                 claimHeading: 'CLAIM YOUR<br><i>FREE RESTORATION BOT.</i>',
-                claimCta: 'Claim My Free Restoration Bot Build',
+                claimCta: 'Book an Appointment',
                 calcProfit: 3000,
                 tradeTile: null
             },
@@ -5147,7 +5100,7 @@
                 calcIntro: 'Missed estimate calls during peak season leak revenue. See what voicemail costs your landscaping crew.',
                 faqAgent: 'On every ring it should do real work: answer in your voice, qualify the landscaping request, book an estimate or capture the lead, text back fast, and route urgent storm cleanup the way you said. Agent Broski is built for landscaping businesses so fewer calls die in voicemail.',
                 claimHeading: 'CLAIM YOUR<br><i>FREE LANDSCAPE BOT.</i>',
-                claimCta: 'Claim My Free Landscape Bot Build',
+                claimCta: 'Book an Appointment',
                 calcProfit: 800,
                 tradeTile: 'landscaping'
             },
@@ -5168,7 +5121,7 @@
                 calcIntro: 'Missed project inquiries are expensive. See what voicemail is costing your demolition business.',
                 faqAgent: 'On every ring it should do real work: answer in your voice, qualify the demolition scope, book a site visit or capture the lead, text back fast, and escalate urgent jobs the way you said. Agent Broski is built for demolition crews so fewer project calls die in voicemail.',
                 claimHeading: 'CLAIM YOUR<br><i>FREE DEMOLITION BOT.</i>',
-                claimCta: 'Claim My Free Demolition Bot Build',
+                claimCta: 'Book an Appointment',
                 calcProfit: 2000,
                 tradeTile: 'demolition'
             },
@@ -5189,7 +5142,7 @@
                 calcIntro: 'The most expensive sound in your business is a voicemail telling a customer you can\'t pick up. See what that costs you.',
                 faqAgent: 'On every ring it should do real work: answer in your voice, qualify the job, book or capture the lead, text back fast, and route emergencies the way you said. Agent Broski is our first agent for home service trades so fewer calls die in voicemail.',
                 claimHeading: 'CLAIM YOUR<br><i>FREE BOT BUILD.</i>',
-                claimCta: 'Claim My Free Bot Build',
+                claimCta: 'Book an Appointment',
                 calcProfit: 1500,
                 tradeTile: null
             }
@@ -5287,7 +5240,6 @@
             const tradeLineBase = resolveCopy(copy.tradeLine, biz);
             const descBase = resolveCopy(copy.desc, biz);
 
-            setPersonalizeText('audience', copy.audience(biz));
             setPersonalizeText('promise', copy.promise(biz));
             setPersonalizeHtml('headline', copy.headline);
             setPersonalizeHtml('desc', descWithBiz(descBase, biz));
@@ -5331,13 +5283,7 @@
             );
             setPersonalizeText(
                 'videoHeadline',
-                biz ? 'Built for ' + biz + '.' : 'Watch this first.'
-            );
-            setPersonalizeHtml(
-                'videoSub',
-                biz
-                    ? 'Hit play, ' + safeBiz + '. <strong>I walk through the build, your line, and the offer.</strong>'
-                    : 'Hit play. <strong>I walk through the build, your line, and the offer.</strong>'
+                'Play to see how it works.'
             );
             setPersonalizeHtml(
                 'tradesLead',
@@ -5347,21 +5293,14 @@
             );
 
             function applyClaimLabels(copy) {
-                const compactNav = window.matchMedia('(max-width: 968px)').matches;
                 document.querySelectorAll(
                     'a.btn-orange[data-track-event="botdude_hero_claim_click"], #trades-bento .btn-orange, #bot-form button[type="submit"]'
                 ).forEach((btn) => {
-                    const inNav = btn.closest('#main-nav');
-                    if (inNav) {
-                        /* Short label only in the compact/mobile header. Desktop keeps the full CTA. */
-                        btn.textContent = compactNav ? 'Claim' : copy.claimCta;
-                    } else {
-                        btn.textContent = copy.claimCta;
-                    }
+                    btn.textContent = copy.claimCta || 'Book an Appointment';
                 });
                 const mobileClaim = document.querySelector('a.btn-orange[data-track-event="botdude_mobile_claim_click"]');
                 if (mobileClaim) {
-                    mobileClaim.textContent = 'Claim Spot';
+                    mobileClaim.textContent = 'Book an Appointment';
                 }
                 const mobileCall = document.querySelector('a.btn-ghost[data-track-event="botdude_mobile_call_click"]');
                 if (mobileCall) {
@@ -5784,7 +5723,7 @@
             const btn = form.querySelector('button[type="submit"]');
             const successMsg = document.getElementById('success-msg');
             const errorMsg = document.getElementById('form-error-msg');
-            const defaultBtnLabel = 'Claim My Free Bot Build';
+            const defaultBtnLabel = 'Book an Appointment';
 
             if (errorMsg) {
                 errorMsg.style.display = 'none';
