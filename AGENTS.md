@@ -49,5 +49,5 @@ Useful checks:
 
 ```bash
 rg -n "\\$3,000|fraction of your lost job revenue|980-BOT-DUDE|Claim My Free Bot Build" index.html
-rg -n "botdude_hero_claim_click|botdude_demo_call_click|botdude_video_play_click|botdude_calculator_used|botdude_form_submit|botdude_mobile_call_click|botdude_mobile_claim_click" index.html
+rg -n "botdude_hero_claim_click|botdude_demo_call_click|botdude_video_play_click|botdude_video_ended|botdude_calculator_used|botdude_form_submit|botdude_mobile_call_click|botdude_mobile_claim_click" index.html
 ```

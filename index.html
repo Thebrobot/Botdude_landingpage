@@ -1300,6 +1300,115 @@
             display: none;
         }
 
+        .offer-video-endcard {
+            position: absolute;
+            inset: 0;
+            z-index: 3;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            margin: 0;
+            padding: 1.35rem 1.15rem;
+            text-align: center;
+            background:
+                radial-gradient(circle at 50% 35%, rgba(0, 229, 255, 0.18) 0%, transparent 55%),
+                linear-gradient(180deg, rgba(2, 6, 23, 0.72) 0%, rgba(2, 6, 23, 0.92) 100%);
+            transition: opacity 0.35s ease, visibility 0.35s ease;
+        }
+
+        .offer-video-endcard[hidden] {
+            display: none;
+        }
+
+        .offer-video-endcard-title {
+            margin: 0;
+            font-family: var(--font-display);
+            font-size: clamp(1.45rem, 4vw, 2.1rem);
+            font-weight: 800;
+            line-height: 1.1;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            color: #fff;
+            text-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+        }
+
+        .offer-video-endcard-sub {
+            margin: 0;
+            max-width: 18rem;
+            font-size: 0.98rem;
+            line-height: 1.45;
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .offer-video-endcard-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.65rem;
+            justify-content: center;
+            width: 100%;
+            max-width: 26rem;
+            margin-top: 0.35rem;
+        }
+
+        .offer-video-endcard-actions .btn {
+            flex: 1 1 10rem;
+            min-width: 0;
+            padding: 0.95rem 1.15rem;
+            font-size: 12px;
+            letter-spacing: 0.08em;
+            box-sizing: border-box;
+        }
+
+        .offer-video-endcard-actions .btn-orange {
+            box-shadow:
+                0 0 0 1px rgba(0, 229, 255, 0.28),
+                0 0 28px rgba(0, 229, 255, 0.28);
+        }
+
+        .offer-video-endcard-phone {
+            margin: 0.15rem 0 0;
+            font-size: 0.92rem;
+            font-weight: 800;
+            letter-spacing: 0.08em;
+        }
+
+        .offer-video-endcard-phone a {
+            color: var(--primary-orange);
+            text-decoration: none;
+        }
+
+        .offer-video-endcard-phone a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 640px) {
+            .offer-video-endcard {
+                padding: 1rem 0.85rem;
+                gap: 0.55rem;
+            }
+
+            .offer-video-endcard-title {
+                font-size: clamp(1.2rem, 5vw, 1.55rem);
+            }
+
+            .offer-video-endcard-sub {
+                font-size: 0.9rem;
+            }
+
+            .offer-video-endcard-actions {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .offer-video-endcard-actions .btn {
+                flex: none;
+                width: 100%;
+            }
+        }
+
         .lead-hero-tight {
             max-width: 34rem;
             margin-bottom: 1.5rem;
@@ -2605,9 +2714,9 @@
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
-            padding: 0.85rem 0.65rem;
-            font-size: 11px;
-            letter-spacing: 0.04em;
+            padding: 0.85rem 0.5rem;
+            font-size: 10px;
+            letter-spacing: 0.03em;
             height: 48px;
             display: flex;
             align-items: center;
@@ -2618,6 +2727,28 @@
 
         .sales-dock .sales-dock-claim {
             flex: 1.15 1 0;
+        }
+
+        .sales-dock .sales-dock-call {
+            flex: 1.05 1 0;
+            color: #ffffff;
+            border: 1px solid rgba(0, 229, 255, 0.55);
+            background: rgba(0, 229, 255, 0.1);
+            box-shadow:
+                0 0 0 1px rgba(0, 229, 255, 0.28),
+                0 0 22px rgba(0, 229, 255, 0.28),
+                0 0 40px rgba(0, 229, 255, 0.12);
+        }
+
+        .sales-dock .sales-dock-call:hover,
+        .sales-dock .sales-dock-call:active {
+            transform: none;
+            border-color: rgba(178, 239, 248, 0.7);
+            background: rgba(0, 229, 255, 0.16);
+            box-shadow:
+                0 0 0 2px rgba(0, 229, 255, 0.4),
+                0 0 28px rgba(0, 229, 255, 0.35),
+                0 0 48px rgba(0, 229, 255, 0.16);
         }
 
         .sales-dock .btn:hover,
@@ -4124,8 +4255,8 @@
             </div>
             <div class="niche-gate-copy niche-gate-reveal" id="niche-gate-reveal" aria-live="polite">
                 <p class="niche-gate-eyebrow">Building it around you</p>
-                <h2 id="niche-reveal-title" class="niche-gate-title">Alright.</h2>
-                <p id="niche-reveal-sub" class="niche-gate-sub">Loading your agent...</p>
+                <h2 id="niche-reveal-title" class="niche-gate-title">Loading your agent preview.</h2>
+                <p id="niche-reveal-sub" class="niche-gate-sub">Almost ready...</p>
                 <div class="niche-reveal-bar" aria-hidden="true"><span></span></div>
             </div>
         </div>
@@ -4204,6 +4335,24 @@
                                     </span>
                                     <p class="offer-video-overlay-headline" data-personalize="videoHeadline">Play to see how it works.</p>
                                 </button>
+                                <div
+                                    id="offer-video-endcard"
+                                    class="offer-video-endcard"
+                                    hidden
+                                    role="dialog"
+                                    aria-labelledby="offer-video-endcard-title"
+                                    aria-describedby="offer-video-endcard-sub"
+                                >
+                                    <p id="offer-video-endcard-title" class="offer-video-endcard-title">Hear Broski live.</p>
+                                    <p id="offer-video-endcard-sub" class="offer-video-endcard-sub">Call the demo line and say you want the demo.</p>
+                                    <div class="offer-video-endcard-actions">
+                                        <a href="tel:+19802683833" class="btn btn-orange" data-track-event="botdude_demo_call_click">Call the Demo Line</a>
+                                        <button type="button" class="btn btn-ghost" id="offer-video-replay">Watch again</button>
+                                    </div>
+                                    <p class="offer-video-endcard-phone">
+                                        <a href="tel:+19802683833" data-track-event="botdude_demo_call_click">980-BOT-DUDE</a>
+                                    </p>
+                                </div>
                             </div>
                         </div>
                         <div class="hero-bridge">
@@ -4826,7 +4975,7 @@
     </main>
 
     <div class="sales-dock" aria-label="Quick actions">
-        <a href="tel:+19802683833" class="btn btn-ghost" data-track-event="botdude_mobile_call_click">Call</a>
+        <a href="tel:+19802683833" class="btn btn-ghost sales-dock-call" data-track-event="botdude_mobile_call_click">Call the Demo Line</a>
         <a href="#claim" class="btn btn-orange sales-dock-claim" data-track-event="botdude_mobile_claim_click">Book an Appointment</a>
     </div>
 
@@ -5304,7 +5453,7 @@
                 }
                 const mobileCall = document.querySelector('a.btn-ghost[data-track-event="botdude_mobile_call_click"]');
                 if (mobileCall) {
-                    mobileCall.textContent = 'Call';
+                    mobileCall.textContent = 'Call the Demo Line';
                 }
             }
 
@@ -5376,16 +5525,15 @@
             const title = document.getElementById('niche-reveal-title');
             const sub = document.getElementById('niche-reveal-sub');
             const biz = String(payload.business || '').trim();
-            const copy = NICHE_COPY[payload.niche];
-            const label = copy ? copy.label : 'home service';
-            const agentLabel = payload.niche === 'other' ? 'phone agent' : label + ' agent';
             const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
             if (title) {
-                title.textContent = biz ? 'Alright, ' + biz + '.' : 'Alright.';
+                title.textContent = biz
+                    ? 'Loading ' + biz + ' agent preview.'
+                    : 'Loading your agent preview.';
             }
             if (sub) {
-                sub.textContent = 'Loading your ' + agentLabel + '...';
+                sub.textContent = 'Almost ready...';
             }
             if (gate) {
                 gate.classList.add('is-revealing');
@@ -5560,12 +5708,15 @@
             });
         });
 
-        // --- Offer overview video play tracking ---
+        // --- Offer overview video play tracking + end-of-video demo prompt ---
         (function () {
             var video = document.getElementById('offer-video-player');
             var overlay = document.getElementById('offer-video-overlay');
+            var endcard = document.getElementById('offer-video-endcard');
+            var replayBtn = document.getElementById('offer-video-replay');
             if (!video) return;
             var tracked = false;
+            var endTracked = false;
 
             var hideOverlay = function () {
                 if (!overlay) return;
@@ -5579,20 +5730,45 @@
                 overlay.setAttribute('aria-hidden', 'false');
             };
 
+            var hideEndcard = function () {
+                if (!endcard) return;
+                endcard.hidden = true;
+            };
+
+            var showEndcard = function () {
+                if (!endcard) return;
+                hideOverlay();
+                endcard.hidden = false;
+                if (!endTracked) {
+                    endTracked = true;
+                    trackBotDudeEvent('botdude_video_ended');
+                }
+            };
+
             if (overlay) {
                 overlay.addEventListener('click', function () {
+                    hideEndcard();
+                    video.play();
+                });
+            }
+
+            if (replayBtn) {
+                replayBtn.addEventListener('click', function () {
+                    hideEndcard();
+                    video.currentTime = 0;
                     video.play();
                 });
             }
 
             video.addEventListener('play', function () {
                 hideOverlay();
+                hideEndcard();
                 if (tracked) return;
                 tracked = true;
                 trackBotDudeEvent('botdude_video_play_click');
             });
 
-            video.addEventListener('ended', showOverlay);
+            video.addEventListener('ended', showEndcard);
         })();
 
         // --- Revenue leak: (missed calls per week × weeks per month) × lead conversion × average job profit ---
