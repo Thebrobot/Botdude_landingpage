@@ -1,15 +1,17 @@
-"""
-Simplify the Botdude landing page.
+"""Rebuild the page into a shorter conversion funnel.
 
-Cuts 6 redundant sections and reorders the remainder into a
-7-section funnel:
+The personalization gate is intentionally outside this script's scope.
+
+Final order:
   1. Hero
-  2. Calculator
-  3. Solution + How It Works
-  4. The Offer
-  5. Built Deployments + Trades Bento
-  6. Proof Build
-  7. FAQ  →  CTA band  →  Claim form
+  2. What Agent Broski does on a call
+  3. Supported trades and custom agents
+  4. Product proof and safeguards
+  5. The offer
+  6. Rollout process
+  7. Missed-opportunity calculator
+  8. FAQ
+  9. Demo request form
 """
 
 import re, sys
@@ -57,7 +59,16 @@ def extract_cta_band(html: str, anchor: str) -> tuple[str, str]:
 # ── 1. Pull out sections we want to keep and reorder ─────────────────────────
 
 # Remove sections that are being cut entirely
-CUT_IDS = ["before-after", "hero-detail", "claim-steps", "compare-paths", "integrations", "additive"]
+CUT_IDS = [
+    "before-after",
+    "hero-detail",
+    "claim-steps",
+    "compare-paths",
+    "integrations",
+    "additive",
+    "without-with",
+    "built-deployments",
+]
 for sid in CUT_IDS:
     html, removed = extract_section(html, sid)
     print(f"Removed #{sid} ({len(removed)} chars)")
@@ -65,10 +76,9 @@ for sid in CUT_IDS:
 # Extract sections we need to reorder
 html, calc_section    = extract_section(html, "calculator")
 html, solution_section = extract_section(html, "solution")
+html, trades_section  = extract_section(html, "trades-bento")
 html, how_section     = extract_section(html, "how")
 html, offer_section   = extract_section(html, "the-offer")
-html, built_section   = extract_section(html, "built-deployments")
-html, trades_section  = extract_section(html, "trades-bento")
 html, proof_section   = extract_section(html, "proof-build")
 html, faq_section     = extract_section(html, "faq")
 html, claim_section   = extract_section(html, "claim")
@@ -91,13 +101,12 @@ hero_end += len('</section>')
 
 # Build the new main content block
 new_sections = (
-    calc_section +
     solution_section +
-    how_section +
-    offer_section +
-    built_section +
     trades_section +
     proof_section +
+    offer_section +
+    how_section +
+    calc_section +
     faq_section +
     final_cta_band +
     claim_section
@@ -118,7 +127,29 @@ html = html.replace(
     '<a href="#how">How It Works</a>\n                    <span aria-hidden="true"> &nbsp;·&nbsp; </span>\n                    <a href="#faq">FAQ</a>'
 )
 
-# ── 5. Write output ───────────────────────────────────────────────────────────
+# ── 5. Keep personalized variants aligned with the rebuilt funnel ────────────
+html = html.replace(
+    "headline: 'More Booked Jobs.<br>Less Voicemail.',",
+    "headline: 'Meet Agent Broski.<br>Your Calls Are Covered.',",
+)
+html = re.sub(
+    r"claimHeading: 'CLAIM YOUR<br><i>FREE [^']+</i>',",
+    "claimHeading: 'SEE HOW BROSKI<br><i>WOULD HANDLE YOUR CALLS.</i>',",
+    html,
+)
+html = html.replace("claimCta: 'Book an Appointment',", "claimCta: 'Request a Broski Demo',")
+html = html.replace("copy.claimCta || 'Book an Appointment'", "copy.claimCta || 'Request a Broski Demo'")
+html = html.replace("mobileClaim.textContent = 'Book an Appointment';", "mobileClaim.textContent = 'Request Demo';")
+html = html.replace("mobileClaim.textContent = 'Request a Broski Demo';", "mobileClaim.textContent = 'Request Demo';")
+html = html.replace("mobileCall.textContent = 'Call the Demo Line';", "mobileCall.textContent = 'Hear Broski';")
+html = html.replace("const defaultBtnLabel = 'Book an Appointment';", "const defaultBtnLabel = 'Request My Broski Demo';")
+html = html.replace("'Play to see how it works.'", "'Meet the employee before you hire him.'")
+html = html.replace(
+    'a.btn-orange[data-track-event="botdude_hero_claim_click"]:not(.nav-book-call), #bot-form button[type="submit"]',
+    'a.btn-orange[data-track-event="botdude_hero_claim_click"]:not(.nav-book-call)',
+)
+
+# ── 6. Write output ───────────────────────────────────────────────────────────
 OUT.write_text(html, encoding="utf-8")
 print(f"\nDone. Written to {OUT}")
 print(f"Final file size: {len(html):,} chars")
